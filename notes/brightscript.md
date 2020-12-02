@@ -11,8 +11,6 @@
   - [Run With VSCode](#run-with-vscode)
   - [Debug Console](#debug-console)
   - [HelloWorld](#helloworld)
-  - [Playback nodes](#playback-nodes)
-  - [Child Content Node](#child-content-node)
   - [Scope](#scope)
   - [Syntax](#syntax)
   - [Types](#types)
@@ -36,6 +34,8 @@
 - Developers channel https://go.roku.com/roku-dev-channel
 
 - YouTube https://go.roku.com/roku-dev-youtube
+
+- Roku on GitHub https://github.com/rokucommunity/vscode-brightscript-language
 
 - Developer Forums
   
@@ -129,6 +129,8 @@ telnet 1.2.3.4 8085
 
 
 ## HelloWorld
+
+https://developer.roku.com/en-gb/docs/developer-program/core-concepts/developing-scenegraph-applications.md
 
 - \components
 - \images
@@ -235,14 +237,6 @@ now creates components\UILogic folder and init
 
 
 
-
-## Playback nodes
-- streamUrl
-- streamFormat
-- length
-
-## Child Content Node
-- has the actual videos
 
 
 
