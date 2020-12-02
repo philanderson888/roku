@@ -10,6 +10,10 @@
   - [interface](#interface)
   - [content feed](#content-feed)
   - [channel](#channel)
+  - [node types](#node-types)
+  - [identifying a node](#identifying-a-node)
+  - [group](#group)
+  - [label](#label)
   - [content node](#content-node)
   - [events](#events)
     - [typical event loop](#typical-event-loop)
@@ -30,6 +34,7 @@
   - [Components](#components-2)
   - [Scenegraph](#scenegraph)
   - [methods](#methods-1)
+  - [threading](#threading)
 
 
 ## manifest
@@ -121,6 +126,36 @@ https://developer.roku.com/en-gb/docs/references/scenegraph/xml-elements/interfa
 
 - home page
 - details page 
+
+## node types
+
+- Playback nodes
+  - streamUrl
+  - streamFormat
+  - length
+  
+- Child Content Node
+  - has the actual videos
+
+## identifying a node
+
+```vb
+ifSGNodeDict findNode() 
+```
+
+## group
+
+group is the base class of all `renderable` nodes
+- visible
+- opacity
+- translation
+- rotation
+- scale
+- 
+## label
+
+https://developer.roku.com/en-gb/docs/references/scenegraph/renderable-nodes/label.md 
+
 
 ## content node
 
@@ -433,3 +468,9 @@ Init()
 OnVisibleChanged()
 OnItemFocused()
 ```
+
+## threading
+
+- Main Thread runs main.brs which creates `scene` component and then starts `render` thread
+  
+- Render Thread renders all visual components
