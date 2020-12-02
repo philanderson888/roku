@@ -8,6 +8,8 @@
       	horizAlign="center"
       	vertAlign="center"
       	/>
+        <Overhang />
+        <Label />
     </children>
 <!-- BrightScript Portion -->
 <script type="text/brightscript" >
