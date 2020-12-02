@@ -1,0 +1,15 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+
+      {
+        "type": "brightscript",
+        "request": "launch",
+        "name": "BrightScript Debug: Launch",
+        "host": "192.168.87.249",
+        "password": "rokudev",
+        "rootDir": "${workspaceFolder}/Projects/label-list",
+        "stopOnEntry": false
+      }
+    ]
+  }
