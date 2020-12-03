@@ -7,6 +7,9 @@
   - [manifest](#manifest)
   - [components](#components-1)
   - [display components](#display-components)
+  - [overhang](#overhang)
+  - [lists and grids](#lists-and-grids)
+  - [panelset](#panelset)
   - [interface](#interface)
   - [content feed](#content-feed)
   - [channel](#channel)
@@ -34,7 +37,9 @@
   - [Components](#components-2)
   - [Scenegraph](#scenegraph)
   - [methods](#methods-1)
+  - [focus](#focus)
   - [threading](#threading)
+  - [RowList](#rowlist)
 
 
 ## manifest
@@ -99,6 +104,59 @@ https://developer.roku.com/en-gb/docs/references/scenegraph/xml-elements/compone
         - duration
         - description- list 
 - panel
+
+
+## overhang
+
+This sits at the top of the screen like a `jumbotron` main heading for the screen
+
+## lists and grids
+
+https://developer.roku.com/en-gb/docs/references/scenegraph/list-and-grid-nodes/overview.md
+
+abstract base class `ArrayGrid`
+
+List
+
+- LabelList
+- MarkupList
+- RowList
+- CheckList
+- RadioButtonList
+- TargetList
+- TargetSet
+- ZoomRowList
+  
+Grid
+
+- PosterGrid
+- MarkupGrid
+- TimeGrid
+
+Index defined by position in `ContentNode` starting at 0 etc
+
+When a list or grid has focus, the items are automatically scrollable up or down from the keypad
+
+```vb
+itemFocused="true"
+itemUnfocused="true" 
+itemSelected="true" ' OK button
+' watch for changes, include callback
+m.episodeList.observeField("itemFocused","showExtraDetails") 
+' play video
+m.episodeList.observeField("itemSelected","playVideo")
+' display episode info from selected item
+episodeInfo = m.episodeList.content.getChild(m.episodeList.itemFocused)
+```
+
+
+
+## panelset
+
+This is a container with children of panels and allows one to slide left and right.  
+
+When in focus the user can use `left` and `right`
+
 
 ## interface
 
@@ -469,8 +527,32 @@ OnVisibleChanged()
 OnItemFocused()
 ```
 
+## focus
+
+```vb
+<?xml version="1.0" encoding="utf-8" ?> 
+<component name="SimpleRowListScene" extends="Scene" >
+  <script type="text/brightscript" >
+    <![CDATA[
+      function init()
+          m.theRowList = m.top.FindNode("theRowList")
+          m.theRowList.SetFocus(true)
+      end function
+    ]]>
+  </script>
+  <children>
+      <SimpleRowList id="theRowList" translation="[50,50]" />
+  </children>
+</component>
+```
+
 ## threading
 
 - Main Thread runs main.brs which creates `scene` component and then starts `render` thread
   
 - Render Thread renders all visual components
+
+## RowList
+
+This enables us to display a list of items but in a row format which is common when scrolling through videos - genres are vertical and similar videos are laid out horizontally to scroll through
+
