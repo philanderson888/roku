@@ -7,7 +7,7 @@ sub Main()
     ?type(2.0) '     Float  
     ?type("hello")  '     String  
     ?type(CreateObject("roList"))  '     roList  
-    ?type(3%)    '  Integer  
+    ?type(3)    '  Integer  
     b!=1  
     ? "Type of 'b!' is " + type(b!)   ' Float  
     c$="hello"  
@@ -21,7 +21,7 @@ sub Main()
     ?type(d)  '    Integer  
     d=1.0  
     Print "type of '1.0' is " + type(d)  '    Float
-    Print 5.tostr()+"th"   ' prints 5th
+    Print 5 + "th"   ' prints 5th
     Print "5".toint()+5    ' prints 10
     'If type(5.tostr())<> "String" Then Stop
     'If (-5).tostr()<>"-5" Then Stop
