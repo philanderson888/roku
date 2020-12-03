@@ -48,6 +48,9 @@
     font = CreateObject("roSGNode","Font")
     font.uri = "pkg:/fonts/BohemianTypewriter.ttf"
     m.font= font
+	'customView = CreateObject("roSGNode","CustomView")
+    'm.top.appendChild(customView)
+    'customView.setFocus(true)
   end function
 ]]>
 </script>
