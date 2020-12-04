@@ -8,7 +8,7 @@
         "name": "BrightScript Debug: Launch",
         "host": "192.168.87.249",
         "password": "rokudev",
-        "rootDir": "${workspaceFolder}/Projects/background",
+        "rootDir": "${workspaceFolder}/Projects/layout-group-02",
         "stopOnEntry": false
       }
     ]

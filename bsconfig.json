@@ -1,13 +1,3 @@
 {
-    // display check boxes
-    //"rootDir": "./ux components/lists and grids/CheckListExample"
-
-    // shows 4 poster nodes
-    // "rootDir": "./ux components/lists and grids/PosterGridExample"
-
-    // sliding grid panel
-    // "rootDir": "./ux components/sliding panels/GridPanelExample"
-
-    // show overhang and label
-    "rootDir": "./projects/background"
+    "rootDir": "./projects/layout-group-02"
 }
