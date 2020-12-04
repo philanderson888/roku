@@ -292,7 +292,12 @@ a_string$
   - 2.0 = float
   - "hi"   = string
   - if reallocated then type can change unless has type character suffix
-- 
+- uri
+- assocarray
+- Node
+- TargetSet
+- Time
+- ContentNode
 
 ## Literals
 
