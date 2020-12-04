@@ -4,7 +4,11 @@
 
 ## Brightscript
 
-## Components
+## SceneGraph
+
+[scenegraph](notes/scenegraph.md)
+
+[control nodes](notes/control-nodes.md)
 
 ## Glossary
 
