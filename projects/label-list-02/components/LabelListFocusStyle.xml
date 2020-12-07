@@ -2,7 +2,7 @@
 
 <!--********** Copyright 2016 Roku Corp.  All Rights Reserved. **********-->
 
-<component name = "LabelListFocusStyleExample" extends = "Group" initialFocus = "exampleLabelList" >
+<component name = "LabelListFocusStyleExample" extends = "Group" initialFocus = "exampleLabelList1" >
 
   <script type = "text/brightscript" >
 
@@ -11,7 +11,7 @@
     sub init()
       examplerect = m.top.boundingRect()
       centerx = (1280 - examplerect.width - 150)
-      centery = (720 - examplerect.height - 200) 
+      centery = 400
       m.top.translation = [ centerx, centery ]
     end sub
 
@@ -22,7 +22,7 @@
   <children >
 
     <LabelList 
-      id = "exampleLabelList" 
+      id = "exampleLabelList1" 
       vertFocusAnimationStyle = "floatingFocus" 
       drawFocusFeedback = "false" 
       focusedColor = "0xEBEB10FF" 
@@ -30,6 +30,9 @@
       <ContentNode role = "content" >
         <ContentNode title = "Label List Focus Style" />
         <ContentNode title = "Label List Focus Style" />      
+        <ContentNode title = "Label List Focus Style" />  
+        <ContentNode title = "Label List Focus Style" />  
+        <ContentNode title = "Label List Focus Style" />  
       </ContentNode>
     </LabelList>
 

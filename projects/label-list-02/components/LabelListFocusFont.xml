@@ -2,22 +2,20 @@
 
 <!--********** Copyright 2016 Roku Corp.  All Rights Reserved. **********-->
 
-<component name = "LabelListFocusFontExample" extends = "Group" initialFocus = "exampleLabelList" >
+<component name = "LabelListFocusFontExample" extends = "Group" initialFocus = "exampleLabelList2" >
 
   <script >
 
     <![CDATA[
 
     sub init()
-      example = m.top.FindNode("exampleLabelList")
-
+      example = m.top.FindNode("exampleLabelList2")
       example.font = "font:MediumSystemFont"
       example.focusedFont = "font:MediumSystemFont"
       example.focusedFont.size = example.font.size+5
-
       examplerect = m.top.boundingRect()
       centerx = (1280 - examplerect.width - 150)
-      centery = (720 - examplerect.height) / 2
+      centery = 200
       m.top.translation = [ centerx, centery ]
     end sub
 
@@ -28,7 +26,7 @@
   <children >
 
     <LabelList 
-      id = "exampleLabelList" 
+      id = "exampleLabelList2" 
       vertFocusAnimationStyle = "floatingFocus" 
       drawFocusFeedback = "false" 
       color = "0xAAAA10FF" 
@@ -36,6 +34,8 @@
       textHorizAlign = "right" >
 
       <ContentNode role = "content" >
+        <ContentNode title = "Label List Focus Font" />
+        <ContentNode title = "Label List Focus Font" />
         <ContentNode title = "Label List Focus Font" />
         <ContentNode title = "Label List Focus Font" />
       </ContentNode>
