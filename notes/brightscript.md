@@ -20,13 +20,16 @@
   - [conditionals](#conditionals)
   - [operators](#operators)
   - [function](#function)
+  - [init function](#init-function)
+  - [events](#events)
+  - [onKeyEvent](#onkeyevent)
 
 
 ## Reference
 
 - Docs https://developer.roku.com/en-gb/overview
-  
-- Brightscript https://developer.roku.com/en-gb/docs/references/brightscript/language/brightscript-language-reference.md
+
+- Reference Docs https://developer.roku.com/en-gb/docs/references/references-overview.md 
 
 - Course https://developer.roku.com/en-gb/videos/courses/rsg/overview.md
 
@@ -292,12 +295,21 @@ a_string$
   - 2.0 = float
   - "hi"   = string
   - if reallocated then type can change unless has type character suffix
+
+other types
+
 - uri
+- color
+- font
+
+SceneGraph Types
+
 - assocarray
 - Node
 - TargetSet
 - Time
-- ContentNode
+- ContentNode - specifies content ie data to fill a node
+- vector2d
 
 ## Literals
 
@@ -441,8 +453,53 @@ print five()
 ```
 
 
+## init function
+
+here is a `task` init function to read data asynchronously
+
+```vb
+<?xml version = "1.0" encoding = "utf-8" ?>
+<component name = "ContentReader" extends = "Task" >
+  <interface>
+    <field id = "contenturi" type = "uri" />
+    <field id = "content" type = "node" />
+  </interface>
+  <script type = "text/brightscript" >
+    <![CDATA[
+    sub init()
+      m.top.functionName = "getcontent"
+    end sub
+    sub getcontent()
+      content = createObject("roSGNode", "ContentNode")
+      contentxml = createObject("roXMLElement")
+      readInternet = createObject("roUrlTransfer")
+      readInternet.setUrl(m.top.contenturi)
+      contentxml.parse(readInternet.GetToString())
+      if contentxml.getName()="Content"
+        for each item in contentxml.GetNamedElements("item")
+          itemcontent = content.createChild("ContentNode")
+          itemcontent.setFields(item.getAttributes())
+        end for
+      end if
+      m.top.content = content
+    end sub
+    ]]>
+  </script>
+</component>
+```
 
 
 
 
 
+## events
+
+## onKeyEvent
+
+press is true on key press down and false on key release up 
+
+```vb
+function onKeyEvent(key as String, press as Boolean) as Boolean
+
+end function
+```
