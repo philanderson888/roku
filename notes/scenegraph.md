@@ -9,20 +9,31 @@
   - [manifest](#manifest)
   - [resolution](#resolution)
   - [components](#components)
-  - [initial focus](#initial-focus)
-  - [display components](#display-components)
+    - [renderable components](#renderable-components)
+    - [component properties](#component-properties)
+    - [non-renderable components](#non-renderable-components)
+    - [sample appliction](#sample-appliction)
+    - [fields](#fields)
+    - [methods](#methods)
+    - [m fields and methods](#m-fields-and-methods)
+  - [initialFocus](#initialfocus)
+  - [SetFocus](#setfocus)
   - [abstract nodes](#abstract-nodes)
   - [Node](#node)
   - [Scene](#scene)
   - [AnimationBase](#animationbase)
   - [ArrayGrid](#arraygrid)
   - [renderable nodes](#renderable-nodes)
-  - [label](#label)
-  - [poster](#poster)
-  - [rectangle](#rectangle)
-  - [SimpleLabel](#simplelabel)
-  - [overhang](#overhang)
-  - [lists and grids](#lists-and-grids)
+    - [label](#label)
+    - [poster](#poster)
+    - [rectangle](#rectangle)
+    - [SimpleLabel](#simplelabel)
+    - [overhang](#overhang)
+  - [lists](#lists)
+    - [markup list](#markup-list)
+    - [RowList](#rowlist)
+  - [grids](#grids)
+  - [poster grid](#poster-grid)
   - [panelset](#panelset)
   - [interface](#interface)
   - [animation nodes](#animation-nodes)
@@ -53,7 +64,6 @@
   - [MiniKeyboard](#minikeyboard)
   - [BusySpinner](#busyspinner)
   - [ParentalControlPinPad](#parentalcontrolpinpad)
-  - [Lists And Grids](#lists-and-grids-1)
   - [content feed](#content-feed)
   - [channel](#channel)
   - [node types](#node-types)
@@ -64,9 +74,6 @@
     - [typical event loop](#typical-event-loop)
     - [event types](#event-types)
   - [OnKeyEvent()](#onkeyevent)
-  - [m fields and methods](#m-fields-and-methods)
-  - [fields](#fields)
-  - [methods](#methods)
   - [layout](#layout)
   - [flow](#flow)
   - [xml to brightscript](#xml-to-brightscript)
@@ -76,12 +83,8 @@
   - [show video screen](#show-video-screen)
   - [Channel](#channel-1)
   - [Display videos](#display-videos)
-  - [Components](#components-1)
-  - [Scenegraph](#scenegraph-1)
   - [methods](#methods-1)
-  - [focus](#focus)
   - [threading](#threading)
-  - [RowList](#rowlist)
 
 ## introduction
 
@@ -152,36 +155,129 @@ items are automatically scaled depending on the supported resoultions
 </component>
 ```
 
-a component is called from the main component with `<MyComponent />`
+called with `<MyComponent />`
 
 root component extends `scene` 
 
 other components extend `group` (default)
 
-component types
+https://developer.roku.com/en-gb/docs/references/scenegraph/xml-elements/component.md
 
-- list
+
+### renderable components
+
+- containers
+  - grid
+  - list
+  - panel
+  - row
+
+leaf items
+
+- label
+- rectangle
+- label     
+- poster = thumbnail
+- button
+- dialog
+
+other items
+
+- keyboard
+- video content
+- audio content
 - vector array
 - associative array
 - object
 
-https://developer.roku.com/en-gb/docs/references/scenegraph/xml-elements/component.md
+### component properties
 
-## initial focus
+- focus
+  - highlighted
+  - name
+  - duration
+  - description- list 
+ 
 
-when rendering the `scene` component ie the main component we can also add in the `initialFocus` attribute to set the item which has the initial focus!!!
+### non-renderable components
 
-## display components
+- timer
+- animation
+- content
 
-- grid
-  - row
-    - thumbnail = poster
-      - focus
-        - highlighted
-        - name
-        - duration
-        - description- list 
-- panel
+### sample appliction
+
+- Main scene
+    - Grid
+        - Row
+            - Label
+    - Details
+        - Layout group
+    - Episodes
+        - Episodes Item
+    - overhang
+    - showOptions
+    - showClock
+    - logoUrl
+    - translation
+- Manifest
+    - major, minor, build
+
+
+### fields
+
+```vb
+' index of selected video in a row of videos
+videoList.itemIndex
+```
+
+### methods
+
+```vb
+' number of child nodes
+content.GetChildCount()
+' select multiple videos
+content.GetChildren(initialIndex,numberOfItems)
+```
+### m fields and methods
+
+```vb
+m.top.backroundColor = "0xFFEEDD"
+m.top.backgroundUri = "pkg:/images/picture.png"
+m.loadingIndicator
+' number of screens open
+m.screenStack.Count()
+```
+
+## initialFocus
+
+```xml
+<component initialFocus="idName" extends="scene">
+```
+
+## SetFocus
+
+set focus in code
+
+```vb
+<?xml version="1.0" encoding="utf-8" ?> 
+<component name="SimpleRowListScene" extends="Scene" >
+  <script type="text/brightscript" >
+    <![CDATA[
+      function init()
+          m.theRowList = m.top.FindNode("theRowList")
+          m.theRowList.SetFocus(true)
+      end function
+    ]]>
+  </script>
+  <children>
+      <SimpleRowList id="theRowList" translation="[50,50]" />
+  </children>
+</component>
+```
+
+
+
 
 ## abstract nodes
 
@@ -261,7 +357,7 @@ provides `list` and `grid` functionality
 - Rectangle
 - SimpleLabel
 
-## label
+### label
 
 renders text
 
@@ -307,7 +403,7 @@ https://developer.roku.com/en-gb/docs/references/scenegraph/renderable-nodes/lab
 </component>
 ```
 
-## poster
+### poster
 
 
 - extends group
@@ -339,7 +435,7 @@ end sub
 </component>
 ```
 
-## rectangle
+### rectangle
 
 - extends group
 - can have children
@@ -378,7 +474,7 @@ end sub
 </component>
 ```
 
-## SimpleLabel
+### SimpleLabel
 
 - more memory efficient than label
 - single line of text
@@ -420,11 +516,11 @@ end sub
 
 
 
-## overhang
+### overhang
 
 This sits at the top of the screen like a `jumbotron` main heading for the screen
 
-## lists and grids
+## lists
 
 https://developer.roku.com/en-gb/docs/references/scenegraph/list-and-grid-nodes/overview.md
 
@@ -432,29 +528,28 @@ abstract base class `ArrayGrid`
 
 List
 
-- LabelList
-- MarkupList
+- LabelList - list of text labels
+- MarkupList - of xml components
 - RowList
 - CheckList
 - RadioButtonList
 - TargetList
 - TargetSet
 - ZoomRowList
-  
-Grid
-
-- PosterGrid
-- MarkupGrid
-- TimeGrid
 
 Index defined by position in `ContentNode` starting at 0 etc
 
-When a list or grid has focus, the items are automatically scrollable up or down from the keypad
+Automatically scrollable on focus
 
 ```vb
 itemFocused="true"
 itemUnfocused="true" 
 itemSelected="true" ' OK button
+```
+
+events
+
+`
 ' watch for changes, include callback
 m.episodeList.observeField("itemFocused","showExtraDetails") 
 ' play video
@@ -462,6 +557,88 @@ m.episodeList.observeField("itemSelected","playVideo")
 ' display episode info from selected item
 episodeInfo = m.episodeList.content.getChild(m.episodeList.itemFocused)
 ```
+
+## label list
+
+this just displays a list of text strings as labels
+
+- content contains the list items
+- itemSize [x,y] is default list item size
+- itemSpacing [x,y] between list items
+- numRows
+- textHorizAlign = left/right/center
+- color
+- focusedColor
+- font
+- focusedFont
+- vertFocusAnimationStyle is fixed or floating
+- itemSelected   index of item currently selected
+- itemFocused     index
+- itemUnfocused   index
+- jumpToItem      index
+- animateToItem   index
+
+also
+
+- title
+- HDListItemIconUrl    when not in focus
+- HDListItemIconSelectedUrl  when in focus
+
+```xml
+<LabelList
+  id = "moviemenu"
+  translation = "[160,92]"
+  itemSize = "[440,48]" >
+  <ContentNode id = "moviemenucontent" role = "content" >
+    <ContentNode title = "Drama" />
+    <ContentNode title = "Action" />
+    <ContentNode title = "Horror" />
+    <ContentNode title = "Comedy" />
+  </ContentNode>
+</LabelList>
+```
+
+### markup list
+
+extends array grid
+
+list of components
+
+examples https://developer.roku.com/en-gb/docs/references/scenegraph/list-and-grid-nodes/markuplist.md
+
+- itemComponentName must have interface defined
+- content   ContentNode ie data for the item
+- itemSize []
+- itemspacing []
+- numRows
+- itemSelected/(Un)focused
+
+
+### RowList
+
+This enables us to display a list of items but in a row format which is common when scrolling through videos - genres are vertical and similar videos are laid out horizontally to scroll through
+
+## grids
+
+https://developer.roku.com/en-gb/docs/references/scenegraph/list-and-grid-nodes/overview.md
+
+abstract base class `ArrayGrid`
+
+- PosterGrid - grid of posters
+- MarkupGrid
+- TimeGrid
+## poster grid
+
+extends array grid
+
+displays 2d grid of posters with 2 lines of text
+
+  1 2 3
+  4 5 6
+  7 8 9
+
+
+
 
 
 
@@ -1036,12 +1213,6 @@ Example here https://developer.roku.com/en-gb/docs/references/scenegraph/widget-
 
 ## ParentalControlPinPad
 
-## Lists And Grids
-
-- LabelList  renders a text label
-- MarkupList renders an xml component
-- 
-
 
 ## content feed
 
@@ -1083,7 +1254,6 @@ group is the base class of all `renderable` nodes
 - translation
 - rotation
 - scale
-- 
 
 
 
@@ -1220,31 +1390,8 @@ function OnKeyEvent(key as String, press as Boolean) as Boolean
 
 https://developer.roku.com/en-gb/docs/references/scenegraph/component-functions/onkeyevent.md
 
-## m fields and methods
 
-```vb
-m.top.backroundColor = "0xFFEEDD"
-m.top.backgroundUri = "pkg:/images/picture.png"
-m.loadingIndicator
-' number of screens open
-m.screenStack.Count()
-```
 
-## fields
-
-```vb
-' index of selected video in a row of videos
-itemIndex
-```
-
-## methods
-
-```vb
-' number of child nodes
-content.GetChildCount()
-' select multiple videos
-content.GetChildren(initialIndex,numberOfItems)
-```
 
 ## layout
 
@@ -1350,45 +1497,7 @@ for each movie in row
 end for
 ```
 
-## Components
 
-    - renderable
-        - containers
-            - grid
-                - row
-                    - label
-            - list
-            - panel
-        - rectangle
-        - label
-        - poster
-        - button
-        - dialog
-        - keyboard
-        - video content
-        - audio content
-    - non-renderable
-        - timer
-        - animation
-        - content
-
-## Scenegraph
-
-- Main scene
-    - Grid
-        - Row
-            - Label
-    - Details
-        - Layout group
-    - Episodes
-        - Episodes Item
-    - overhang
-    - showOptions
-    - showClock
-    - logoUrl
-    - translation
-- Manifest
-    - major, minor, build
 
 
 ## methods
@@ -1399,32 +1508,11 @@ OnVisibleChanged()
 OnItemFocused()
 ```
 
-## focus
-
-```vb
-<?xml version="1.0" encoding="utf-8" ?> 
-<component name="SimpleRowListScene" extends="Scene" >
-  <script type="text/brightscript" >
-    <![CDATA[
-      function init()
-          m.theRowList = m.top.FindNode("theRowList")
-          m.theRowList.SetFocus(true)
-      end function
-    ]]>
-  </script>
-  <children>
-      <SimpleRowList id="theRowList" translation="[50,50]" />
-  </children>
-</component>
-```
-
 ## threading
 
 - Main Thread runs main.brs which creates `scene` component and then starts `render` thread
   
 - Render Thread renders all visual components
 
-## RowList
 
-This enables us to display a list of items but in a row format which is common when scrolling through videos - genres are vertical and similar videos are laid out horizontally to scroll through
 
