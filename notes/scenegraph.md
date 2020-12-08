@@ -30,6 +30,7 @@
     - [SimpleLabel](#simplelabel)
     - [overhang](#overhang)
   - [lists](#lists)
+  - [label list](#label-list)
     - [markup list](#markup-list)
     - [RowList](#rowlist)
   - [grids](#grids)
@@ -549,7 +550,7 @@ itemSelected="true" ' OK button
 
 events
 
-`
+```vb
 ' watch for changes, include callback
 m.episodeList.observeField("itemFocused","showExtraDetails") 
 ' play video
@@ -617,6 +618,36 @@ examples https://developer.roku.com/en-gb/docs/references/scenegraph/list-and-gr
 ### RowList
 
 This enables us to display a list of items but in a row format which is common when scrolling through videos - genres are vertical and similar videos are laid out horizontally to scroll through
+
+https://developer.roku.com/en-gb/docs/references/scenegraph/list-and-grid-nodes/rowlist.md
+
+- rowFocusAnimationStyle
+  - floatingFocus (items stop at end)
+  - fixedFocusWrap (wraps at end)
+  - fixedFocus (stays focused on first item)
+- vertFocusAnimationStyle
+  - displays as poster list
+  - displays generic xml item as a markup list
+
+Row
+
+- itemComponentName - row component
+- rowTitleComponentName - renders titles
+- content is ContentNode, one per row and each one has one ContentNode child per item
+- itemSize/Spacing
+- numRows
+- rowHeights []
+- rowSpacing
+- rowItemSpacing
+- showRowCounter
+
+Row Item
+
+- width/height
+- index
+- rowIndex
+- rowHasFocus
+
 
 ## grids
 
