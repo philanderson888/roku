@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="PlayVideo" extends="Scene"> 
+	<children>
+		<Video width="1280" height="720" translation="[0,0]" />
+	</children>
+<script type="text/brightscript" >
+<![CDATA[
+  function init()
+    m.top.setFocus(true)
+  end function
+]]>
+</script>
+</component>
