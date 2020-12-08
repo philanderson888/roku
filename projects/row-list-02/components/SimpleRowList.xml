@@ -13,7 +13,7 @@
 	    m.top.itemSpacing = [ 0, 80 ]
 	    m.top.rowItemSpacing = [ [20, 0] ]
 		m.top.rowLabelOffset = [ [0, 30] ]
-	    m.top.rowFocusAnimationStyle = "floatingFocus"
+	    m.top.rowFocusAnimationStyle = "fixedFocusWrap"
 		m.top.showRowLabel = [true, true]
 		m.top.rowLabelColor="0xa0b033ff"
         m.top.content = GetRowListContent()
@@ -30,7 +30,7 @@
 			row.title = "Row " + stri(numRows)
 	        for i = 1 to 15
 	            item = row.CreateChild("SimpleRowListItemData")
-	            item.posterUrl = "http://devtools.web.roku.com/samples/images/Landscape_1.jpg"
+	            item.posterUrl = "https://picsum.photos/200/300?random=" + (numRows*15 + i).tostr()
 	            item.labelText = "This is item" + stri(numRows*15 + i)
 	        end for
 	    end for
