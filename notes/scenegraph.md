@@ -7,7 +7,6 @@
   - [introduction](#introduction)
   - [reference](#reference)
   - [manifest](#manifest)
-  - [resolution](#resolution)
   - [components](#components)
     - [renderable components](#renderable-components)
     - [component properties](#component-properties)
@@ -23,69 +22,65 @@
   - [Scene](#scene)
   - [AnimationBase](#animationbase)
   - [ArrayGrid](#arraygrid)
-  - [renderable nodes](#renderable-nodes)
+  - [renderable](#renderable)
     - [label](#label)
+    - [SimpleLabel](#simplelabel)
     - [poster](#poster)
     - [rectangle](#rectangle)
-    - [SimpleLabel](#simplelabel)
     - [overhang](#overhang)
   - [lists](#lists)
-  - [label list](#label-list)
+    - [label list](#label-list)
     - [markup list](#markup-list)
     - [RowList](#rowlist)
   - [grids](#grids)
-  - [poster grid](#poster-grid)
-  - [panelset](#panelset)
+    - [poster grid](#poster-grid)
+    - [panelset](#panelset)
   - [interface](#interface)
   - [animation nodes](#animation-nodes)
-  - [simple animation](#simple-animation)
-  - [sequential animation](#sequential-animation)
-  - [parallel animation](#parallel-animation)
-  - [color field](#color-field)
-  - [float field](#float-field)
-  - [vector 2d field](#vector-2d-field)
+    - [simple animation](#simple-animation)
+    - [sequential animation](#sequential-animation)
+    - [parallel animation](#parallel-animation)
+    - [color field](#color-field)
+    - [float field](#float-field)
+    - [vector 2d field](#vector-2d-field)
   - [typographic nodes](#typographic-nodes)
-  - [font](#font)
-  - [scrolling label](#scrolling-label)
-  - [ScrollableText](#scrollabletext)
+    - [font](#font)
+    - [scrolling label](#scrolling-label)
+    - [ScrollableText](#scrollabletext)
   - [control nodes](#control-nodes)
+    - [Thread](#thread)
+    - [Task](#task)
+    - [MaskGroup](#maskgroup)
+    - [Timer](#timer)
+    - [ComponentLibrary](#componentlibrary)
+    - [ChannelStore](#channelstore)
   - [ContentNode](#contentnode)
-  - [content metada](#content-metada)
-  - [Exposing Fields Using Interfaces](#exposing-fields-using-interfaces)
+    - [content metadata](#content-metadata)
+    - [iteration](#iteration)
+  - [Interfaces](#interfaces)
   - [layout / group nodes](#layout--group-nodes)
-  - [group](#group)
-  - [layout group](#layout-group)
-  - [button group](#button-group)
-  - [target group](#target-group)
+    - [group](#group)
+    - [layout group](#layout-group)
+    - [button group](#button-group)
+    - [target group](#target-group)
   - [widgets](#widgets)
-  - [Button](#button)
-  - [TextEditBox](#texteditbox)
-  - [PinPad](#pinpad)
-  - [Keyboard](#keyboard)
-  - [MiniKeyboard](#minikeyboard)
-  - [BusySpinner](#busyspinner)
-  - [ParentalControlPinPad](#parentalcontrolpinpad)
+    - [Button](#button)
+    - [TextEditBox](#texteditbox)
+    - [PinPad](#pinpad)
+    - [Keyboard](#keyboard)
+    - [MiniKeyboard](#minikeyboard)
+    - [BusySpinner](#busyspinner)
+    - [ParentalControlPinPad](#parentalcontrolpinpad)
   - [content feed](#content-feed)
-  - [channel](#channel)
   - [node types](#node-types)
-  - [identifying a node](#identifying-a-node)
-  - [group](#group-1)
-  - [content node](#content-node)
+  - [finding a node](#finding-a-node)
   - [events](#events)
-    - [typical event loop](#typical-event-loop)
+    - [event loop](#event-loop)
     - [event types](#event-types)
-  - [OnKeyEvent()](#onkeyevent)
-  - [layout](#layout)
-  - [flow](#flow)
-  - [xml to brightscript](#xml-to-brightscript)
-  - [samples](#samples)
-  - [iterate over videos](#iterate-over-videos)
-  - [closing a screen](#closing-a-screen)
-  - [show video screen](#show-video-screen)
-  - [Channel](#channel-1)
-  - [Display videos](#display-videos)
-  - [methods](#methods-1)
-  - [threading](#threading)
+    - [OnKeyEvent()](#onkeyevent)
+    - [flow](#flow)
+  - [video](#video)
+  - [Channel Overview](#channel-overview)
 
 ## introduction
 
@@ -123,26 +118,12 @@ splash=pkg:/images/splash.png
 # resolution
 ui_resolutions=fhd
 # screensaver
-...
 # extra
 confirm_partner_button=1
 ```
 
-
 https://developer.roku.com/en-gb/docs/developer-program/getting-started/architecture/channel-manifest.md
 
-
-
-
-## resolution
-
-resolution assumes the following but automatically scales for hardware not supporting these resolutions
-
-- FHD 1920x1080
-- HD 1280x720
-- SD 720X480
-  
-items are automatically scaled depending on the supported resoultions
 
 ## components
 
@@ -351,7 +332,7 @@ provides `list` and `grid` functionality
 - numRows/Columns
 - focusRow/Column
 
-## renderable nodes
+## renderable
 
 - Label
 - Poster
@@ -404,8 +385,46 @@ https://developer.roku.com/en-gb/docs/references/scenegraph/renderable-nodes/lab
 </component>
 ```
 
-### poster
+### SimpleLabel
 
+- more memory efficient than label
+- single line of text
+
+- vertOrigin aligns text top/bottom (of lowest symbol)/center/baseline(tails of eg y,g cut below this line)
+- horizOrigin left/center/right
+- text
+- color
+- fontUri
+- fontSize
+
+```vb
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!--********** Copyright 2018 Roku Corp.  All Rights Reserved. **********-->
+
+<component name="simpleLabeltest" extends="Group" >
+
+<script type="text/brightscript" >
+<![CDATA[
+
+  sub init()
+    m.top.setFocus(true)
+  end sub
+
+]]>
+</script>
+
+<SimpleLabel
+  id="testLabel"
+  font="fontUri:MediumBoldSystemFont"
+  text = "Application Development Made Easy!"
+  horizOrigin = "left"
+  vertOrigin = "baseline"
+  translation="[640,360]" />
+
+</component>
+```
+### poster
 
 - extends group
 - draws an image
@@ -475,45 +494,6 @@ end sub
 </component>
 ```
 
-### SimpleLabel
-
-- more memory efficient than label
-- single line of text
-
-- vertOrigin aligns text top/bottom (of lowest symbol)/center/baseline(tails of eg y,g cut below this line)
-- horizOrigin left/center/right
-- text
-- color
-- fontUri
-- fontSize
-
-```vb
-<?xml version="1.0" encoding="utf-8" ?>
-
-<!--********** Copyright 2018 Roku Corp.  All Rights Reserved. **********-->
-
-<component name="simpleLabeltest" extends="Group" >
-
-<script type="text/brightscript" >
-<![CDATA[
-
-  sub init()
-    m.top.setFocus(true)
-  end sub
-
-]]>
-</script>
-
-<SimpleLabel
-  id="testLabel"
-  font="fontUri:MediumBoldSystemFont"
-  text = "Application Development Made Easy!"
-  horizOrigin = "left"
-  vertOrigin = "baseline"
-  translation="[640,360]" />
-
-</component>
-```
 
 
 
@@ -559,7 +539,7 @@ m.episodeList.observeField("itemSelected","playVideo")
 episodeInfo = m.episodeList.content.getChild(m.episodeList.itemFocused)
 ```
 
-## label list
+### label list
 
 this just displays a list of text strings as labels
 
@@ -658,7 +638,15 @@ abstract base class `ArrayGrid`
 - PosterGrid - grid of posters
 - MarkupGrid
 - TimeGrid
-## poster grid
+
+samples
+
+- grid  https://github.com/rokudev/scenegraph-master-sample/tree/master/GridScreen
+- simple grid https://github.com/rokudev/samples/blob/master/ux%20components/lists%20and%20grids/Simple_Grid_and_Video.zip 
+- grid with details and video https://github.com/rokudev/samples/blob/master/ux%20components/lists%20and%20grids/Simple_Grid_with_Details_and_Video.zip
+
+
+### poster grid
 
 extends array grid
 
@@ -668,12 +656,9 @@ displays 2d grid of posters with 2 lines of text
   4 5 6
   7 8 9
 
+xml `PosterGrid` matches `roPosterScreen`
 
-
-
-
-
-## panelset
+### panelset
 
 This is a container with children of panels and allows one to slide left and right.  
 
@@ -686,8 +671,6 @@ When in focus the user can use `left` and `right`
 - exposes public <field> elements
 - allows instances to be created
 - exposes functional fields <function> elements https://developer.roku.com/en-gb/docs/developer-program/core-concepts/handling-application-events.md#HandlingApplicationEvents-FunctionalFields
-
-  
 
 https://developer.roku.com/en-gb/docs/references/scenegraph/xml-elements/interface.md
 
@@ -712,7 +695,7 @@ fields
 - easeFunction
 
 
-## simple animation
+### simple animation
 
 ```vb
 function init()
@@ -757,7 +740,7 @@ end function
 </component>
 ```
 
-## sequential animation
+### sequential animation
 
 a set of animations in order
 
@@ -816,7 +799,7 @@ a set of animations in order
 </component>
 ```
 
-## parallel animation
+### parallel animation
 
 animations which can occur at the same time
 
@@ -875,7 +858,7 @@ animations which can occur at the same time
 </component>
 ```
 
-## color field 
+### color field 
 
 changes color
 
@@ -907,7 +890,7 @@ changes color
 </component>
 ```
 
-## float field
+### float field
 
 example - change opacity over 10 seconds
 
@@ -941,7 +924,7 @@ example - change opacity over 10 seconds
 </component>
 ```
 
-## vector 2d field
+### vector 2d field
 
 translate [x,y]
 
@@ -997,7 +980,7 @@ translate [x,y]
 - scrollingLabel
 - ScrollableText
 
-## font
+### font
 
 ```xml
 <Label id="mySmallLabel"
@@ -1011,7 +994,7 @@ or
 m.mylargerlabel.font.size = m.mylargerlabel.font.size+5
 ```
 
-## scrolling label
+### scrolling label
 
 allows a string to scroll horizontally if the text does not fit into the required width
 
@@ -1022,7 +1005,7 @@ allows a string to scroll horizontally if the text does not fit into the require
 - maxWidth
 - scrollSpeed
 
-## ScrollableText
+### ScrollableText
 
 Scrolls text vertically which the user can read and scroll  through vertically
 
@@ -1030,6 +1013,7 @@ Scrolls text vertically which the user can read and scroll  through vertically
 - color
 - font
 - width/height
+
 
 ## control nodes
 
@@ -1040,31 +1024,123 @@ Scrolls text vertically which the user can read and scroll  through vertically
 - ComponentLibrary
 - ChannelStore
 
-[control nodes](control-nodes.md)
+### Thread
+
+- Main Thread runs main.brs which creates `scene` component and then starts `render` thread
+  
+- Render Thread renders all visual components
+
+### Task
+
+runs background thread
+
+useful for functions which can't be run on the component, the full list of which is here https://developer.roku.com/en-gb/docs/developer-program/core-concepts/scenegraph-brightscript/brightscript-support.md
+
+useful to read data from server to create a `ContentNode` node which configures a component
+
+so can think of as a content reader
+
+- new Task node for each async operation
+- reuse Task over and over
+- observe input fields and returns output like a server
+
+### MaskGroup
+
+extends group
+
+applies `alpha mask bitmap` to children eg fade out or partially cover an image or make it appear partially faded
+
+OpenGL has to be supported
+
+### Timer
+
+- control start/stop
+- repeat
+- duration seconds
+- fire   triggers callback 
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!--********** Copyright 2015 Roku Corp.  All Rights Reserved. **********-->
+
+<component   name="timertest"   extends="Group" >
+
+<script type="text/brightscript" >
+<![CDATA[
+
+sub init()
+  m.testtimer = m.top.findNode("testTimer")
+  m.testtimer.control = "start"
+  m.defaulttext = "Wait for it, wait for it..."
+  m.alternatetext = "Timer fired!!!"
+
+  m.testtimerlabel = m.top.FindNode("testTimerLabel")
+  m.testtimerlabel.text = m.defaulttext
+  m.textchange = false
+  m.testtimer.ObserveField("fire","changetext")
+  m.top.setFocus(true)
+end sub
+
+sub changetext()
+  if (m.textchange = false) then
+    m.testtimerlabel.text = m.alternatetext
+    m.textchange = true
+   else
+     m.testtimerlabel.text = m.defaulttext
+     m.textchange = false
+   end if
+end sub
+
+]]>
+</script>
+
+<children>
+
+<Label
+  id="testTimerLabel"
+  width = "1280"
+  translation = "[0,500]"
+  horizAlign = "center"
+  vertAlign = "center"
+/>
+
+<Timer
+  id="testTimer"
+  repeat="true"
+  duration="5"
+/>
+
+</children>
+
+</component>
+```
+
+### ComponentLibrary
+
+dowloads custom scenegraph components
+
+usually download from brightscript then start the application once the download has finished
+
+must have separate manifest
+
+Example at https://developer.roku.com/en-gb/docs/references/scenegraph/control-nodes/componentlibrary.md
+
+### ChannelStore
+
+creates `roChannelStore` component to connect to the store and can be used to purchase items etc
+
+
+
+
 
 ## ContentNode
 
 extends Node
 
-used to specify data which can be used to configure a component.
+used to map fixed xml or content feed data to fields in this item
 
-lists and grids require this for configuration
-
-hierarchy follows the xml hierarchy
-
-- text for labels
-- spacing
-
-Create using
-
-```xml
-<ContentNode role= or id= >
-  <ContentNode content_meta-data_attribute = "attribute" ... />
-  ...
-</ContentNode>
-```
-
-eg
+used by lists and grids
 
 ```xml
 <LabelList  id = "labellist" >
@@ -1077,17 +1153,23 @@ eg
 </LabelList>
 ```
 
-or create in brightscript
+or brightscript
 
 ```vb
-ContentNode_object = createObject("RoSGNode","ContentNode")
-ContentNode_child_object = ContentNode_object.createChild("ContentNode")
-ContentNode_child_object.field_name = data
+root = createObject("RoSGNode","ContentNode")
+child = root.createChild("ContentNode")
+child.title=""
+child.description=""
+child.streamUrl=""
+child.streamFormat=""
+' add content to screen item
+labelList.content = root
 ```
 
 See example at https://developer.roku.com/en-gb/docs/references/scenegraph/control-nodes/contentnode.md
 
-## content metada
+
+### content metadata
 
 all of the following are exposed on every component as metadata fields
 
@@ -1110,17 +1192,37 @@ all of the following are exposed on every component as metadata fields
 - Artist
 - TextOverlay
 
-## Exposing Fields Using Interfaces
+### iteration
+
+we can iterate over a loop to populate multiple rows and columns with data
+
+```vb
+for each movie in row
+  child=root.createChild("ContentNode")
+  child.title=""
+end for
+```
+
+clone a subset of `children` and put into `childrenClone`
+
+```vb
+children=content.GetChildren(0,numberOfItems)
+childrenClone = []
+for each child in children
+  childrenClone.Push(child.Clone(false))
+end for
+```
+
+
+## Interfaces
 
 to expose an interface field
 
 ```xml
 <component  name = "listitemcontent" extends = "ContentNode" >
-
   <interface >
     <field id = "componentname" type = "string" />
   </interface>
-
 </component>
 ```
 
@@ -1137,7 +1239,7 @@ iteminfo.componentname
 - layoutgroup
 - targetgroup
 
-## group
+### group
 
 extends `Node`
 
@@ -1151,7 +1253,7 @@ extends `Node`
 - scale
 - clippingRect
 
-## layout group
+### layout group
 
 extends `Group`
 
@@ -1161,7 +1263,7 @@ provides a grid layout for child elements
 - horizAlignment="left/right/center"
 - vertAlignment="top/center/bottom/vert"
 
-## button group
+### button group
 
 extends LayoutGroup
 
@@ -1172,7 +1274,7 @@ extends LayoutGroup
 - focusButton 
 - buttons ["button1","button2"]
 
-## target group
+### target group
 
 extends group
 
@@ -1204,7 +1306,7 @@ Examples https://developer.roku.com/en-gb/docs/references/scenegraph/layout-grou
 - BusySpinner
 - ParentalControlPinpad
 
-## Button
+### Button
 
 typically in button group
 
@@ -1213,7 +1315,7 @@ typically in button group
 - icon
 - background
 
-## TextEditBox
+### TextEditBox
 
 editable text eg username and password
 
@@ -1222,7 +1324,7 @@ editable text eg username and password
 - maxTextLength
 
 
-## PinPad
+### PinPad
 
 extends group
 
@@ -1234,15 +1336,15 @@ enter number
 - showPinDisplay  
 - itemFocused   index of pin for initial focus
 
-## Keyboard
+### Keyboard
 
-## MiniKeyboard
+### MiniKeyboard
 
-## BusySpinner
+### BusySpinner
 
 Example here https://developer.roku.com/en-gb/docs/references/scenegraph/widget-nodes/busyspinner.md
 
-## ParentalControlPinPad
+### ParentalControlPinPad
 
 
 ## content feed
@@ -1256,11 +1358,6 @@ Example here https://developer.roku.com/en-gb/docs/references/scenegraph/widget-
 - tags
 - genre
 
-## channel
-
-- home page
-- details page 
-
 ## node types
 
 - Playback nodes
@@ -1271,65 +1368,11 @@ Example here https://developer.roku.com/en-gb/docs/references/scenegraph/widget-
 - Child Content Node
   - has the actual videos
 
-## identifying a node
+## finding a node
 
 ```vb
 ifSGNodeDict findNode() 
 ```
-
-## group
-
-group is the base class of all `renderable` nodes
-- visible
-- opacity
-- translation
-- rotation
-- scale
-
-
-
-## content node
-
-grid (xml)
-
-  root (xml created in brightscript)
-
-    child (xml created in brightscript)
-
-```vb
-' root
-root = createObject("RoSGNode","ContentNode")
-' child
-child = root.createChild("ContentNode")
-child.title
-child.description
-child.streamUrl
-child.streamFormat
-' add content to SceneGraph
-sgComponent.content = root
-```
-
-map each video in a series
-
-all metadata for each movie is stored in a child content node 
-
-```vb
-' channel
-row.title="My Channel"
-for each movie in row
-  child = root.createChild("ContentNode")
-  child.title=movie.title
-  ....
-end for
-```
-
-content node metadata  maps to content feed fields
-
-content node maps metadata in content feed to each of the SceneGraph components in your channel 
-
-- non-renderable
-- data node
-- maps to data in your content feed
 
 
 ## events
@@ -1338,9 +1381,7 @@ https://developer.roku.com/en-gb/docs/developer-program/core-concepts/event-loop
 
 event = message
 
-when button is clicked an `event` or `message` is created
-
-event loop
+### event loop
 
 ```vb
 while true
@@ -1350,8 +1391,6 @@ end while
 ```
 
 event message type is `roMessagePort`
-
-### typical event loop
 
 ```vb
 port = CreateObject("roMessagePort")
@@ -1403,9 +1442,7 @@ isButtonInfo() as Boolean
 ```
 
 
-## OnKeyEvent() 
-
-Triggered when a key is pressed from the remote control
+### OnKeyEvent() 
 
 ```vb
 function OnKeyEvent(key as String, press as Boolean) as Boolean
@@ -1424,70 +1461,42 @@ https://developer.roku.com/en-gb/docs/references/scenegraph/component-functions/
 
 
 
-## layout
-
-https://developer.roku.com/en-gb/docs/developer-program/core-concepts/controlling-screen-layout.md
-
-- translation = x,y
-- z-order 
-- parent-child to group elements with `Group` and `LayoutGroup`
-  
-
-## flow
+### flow
 
 https://developer.roku.com/en-gb/docs/developer-program/core-concepts/controlling-screen-program-flow.md
 
 - key press
 - data arrival
-- z-order
-- parent-child
 - creating and deleting elements
 - hiding and showing elements
 - focus/blur elements
-
-## xml to brightscript
-
-xml `PosterGrid` matches `roPosterScreen`
-
-## samples
-
-grid
-
-https://github.com/rokudev/scenegraph-master-sample/tree/master/GridScreen
-
-simple grid
-
-https://github.com/rokudev/samples/blob/master/ux%20components/lists%20and%20grids/Simple_Grid_and_Video.zip 
-
-grid with details and video
-
-https://github.com/rokudev/samples/blob/master/ux%20components/lists%20and%20grids/Simple_Grid_with_Details_and_Video.zip
+ 
 
 
-## iterate over videos
+## video
 
-```vb
-children=content.GetChildren(0,numberOfItems)
-childrenClone = []
-for each child in children
-  childrenClone.Push(child.Clone(false))
-```
-
-
- ## closing a screen
-
- ```vb
-CloseScreen() 
- ```
-   
-## show video screen
+Root = screen
+Child = movie
 
 ```vb
 sub ShowVideoScreen(content as Object, itemIndex as Integer)
   m.videoPlayer = CreateObject("RoSGNode","Video")
+end sub
 ```
 
-## Channel
+
+```vb
+for each movie in row
+  child = root...createChild
+end for
+```
+
+
+
+
+
+
+## Channel Overview
 
 - Grid Screen = Home Screen
 - Details Screen = Series
@@ -1516,34 +1525,3 @@ sub ShowVideoScreen(content as Object, itemIndex as Integer)
         - length
     - Child content node
         - has the actual videos
-
-## Display videos
-
-Root = screen
-Child = movie
-
-```vb
-for each movie in row
-  child = root...createChild
-end for
-```
-
-
-
-
-## methods
-
-```vb
-Init()
-OnVisibleChanged()
-OnItemFocused()
-```
-
-## threading
-
-- Main Thread runs main.brs which creates `scene` component and then starts `render` thread
-  
-- Render Thread renders all visual components
-
-
-

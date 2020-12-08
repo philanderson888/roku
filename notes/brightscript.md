@@ -23,6 +23,9 @@
   - [init function](#init-function)
   - [events](#events)
   - [onKeyEvent](#onkeyevent)
+  - [validating content](#validating-content)
+  - [content options](#content-options)
+  - [methods](#methods)
 
 
 ## Reference
@@ -502,4 +505,24 @@ press is true on key press down and false on key release up
 function onKeyEvent(key as String, press as Boolean) as Boolean
 
 end function
+```
+
+## validating content
+
+if (args.mediaType <> invalid) and (args.contentId <> invalid)
+  ...proceed
+
+## content options
+
+if args.mediaType="movie" then playVideo(contentItem)
+else if args.mediaType="episode" then playEpisodicVideo(contentItem)
+else if args.mediaType="season" then ShowEpisodePicker(contentItem)
+else if args.mediaType="series" then playSeriesVideo(contentItem) ' next in series, first or latest
+
+## methods
+
+```vb
+Init()
+OnVisibleChanged()
+OnItemFocused()
 ```
