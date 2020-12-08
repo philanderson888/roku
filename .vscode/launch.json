@@ -8,7 +8,7 @@
         "name": "BrightScript Debug: Launch",
         "host": "192.168.87.249",
         "password": "rokudev",
-        "rootDir": "${workspaceFolder}/projects/poster-grid-02",
+        "rootDir": "${workspaceFolder}/projects/video-player-02",
         "stopOnEntry": false
       }
     ]
