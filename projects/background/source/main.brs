@@ -1,6 +1,7 @@
 '********** Copyright 2016 Roku Corp.  All Rights Reserved. **********
 
 sub Main()
+  print "Hello, World 555"
   showChannelSGScreen()
 end sub
 
