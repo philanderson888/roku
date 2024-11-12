@@ -2,7 +2,7 @@
 <component name="HelloWorld" extends="Scene"> 
 	<children>
       <Label id="myLabel" 
-      	text="label 1"
+      	text="label 111"
       	width="1280" 
       	height="720" 
       	horizAlign="center"
@@ -10,7 +10,7 @@
      	/>
 
       <Label id="myLabel2" 
-      	text="label 2"
+      	text="label 2222"
       	width="1280" 
       	height="720" 
       	horizAlign="center"

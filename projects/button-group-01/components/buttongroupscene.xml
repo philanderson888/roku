@@ -13,7 +13,7 @@
 
       example = m.top.findNode("exampleButtonGroup")
 
-      example.buttons = [ "OK", "Cancel" ]
+      example.buttons = [ "OK", "Cancel", "Help" ]
 
       examplerect = example.boundingRect()
       centerx = (1280 - examplerect.width) / 2

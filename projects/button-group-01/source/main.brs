@@ -1,6 +1,7 @@
 '********** Copyright 2016 Roku Corp.  All Rights Reserved. **********
 
 sub Main()
+  print "button-group-01"
   showChannelSGScreen()
 end sub
 
