@@ -28,6 +28,7 @@ This is a repo for learning Brightscript and SceneGraph for creating Roku apps
     - [submit for certification](#submit-for-certification)
   - [resolution](#resolution)
   - [Video Glossary](#video-glossary)
+  - [brighterscript](#brighterscript)
 
 ## General Glossary
 
@@ -214,3 +215,12 @@ items are automatically scaled depending on the supported resoultions
 - Lumens = total amount of light emitted in every direction
 
 
+## brighterscript
+
+[notes](notes/brighterscript.md)
+
+please see tester project set up here
+
+[hello world brighterscript](/projects/hello-world-06-brighterscript/)
+
+also the notes to run it are here [hello-world-brighterscript](notes/brighterscript.md#hello-world-brighterscript)
