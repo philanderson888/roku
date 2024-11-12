@@ -1,3 +1,11 @@
 {
-    "rootDir": "./projects/video-player-02"
+    "rootDir": "./projects/hello-world-06-brighterscript",
+    "stagingDir": "./out",
+    "plugins": [
+        "rooibos-roku"
+    ],
+    "scripts": {
+        "build-tests": "npx bsc",
+        "build-tdd": "npx bsc --project bsconfig-tdd.json"
+    }
 }

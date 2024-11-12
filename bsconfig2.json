@@ -1,0 +1,13 @@
+{
+    "analyseThisLaterOn": true,
+    "rootDir": "source",
+    "outDir": "out",
+    "stagingFolderPath": "out",
+    "files": [
+      "manifest"
+    ],
+    "watch": {
+      "pattern": "**/*",
+      "debounce": 200
+    }
+  }
