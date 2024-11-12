@@ -109,3 +109,4 @@ dist
 .out/
 ./roku-deploy-staging/
 roku-deploy.zip
+*.zip
