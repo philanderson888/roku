@@ -1,9 +1,6 @@
 {
-    "rootDir": "./projects/hello-world-06-brighterscript",
+    "rootDir": "./projects/key-press/key-press-03",
     "stagingDir": "./out",
-    "plugins": [
-        "rooibos-roku"
-    ],
     "scripts": {
         "build-tests": "npx bsc",
         "build-tdd": "npx bsc --project bsconfig-tdd.json"
