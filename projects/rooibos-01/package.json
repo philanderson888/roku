@@ -1,0 +1,10 @@
+{
+  "devDependencies": {
+    "brighterscript": "^0.67.8",
+    "rooibos-roku": "^5.14.0"
+  },
+  "scripts": {
+    "build-tests": "npx bsc",
+    "build-tdd": "npx bsc --project bsconfig-tdd.json"
+  }
+}
