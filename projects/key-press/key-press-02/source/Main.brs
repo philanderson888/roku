@@ -1,5 +1,5 @@
 sub Main()
-    Print "PanelSet example"
+    Print "Key Press 02 example"
     screen = CreateObject("roSGScreen")
     m.port = CreateObject("roMessagePort")
     print (m.port)
@@ -11,7 +11,7 @@ sub Main()
     end for
     ' tv
     screen.setMessagePort(m.port)
-    scene = screen.CreateScene("Rectangle01")
+    screen.CreateScene("Rectangle01")
     screen.show()
     while(true)
         msg = wait(0, m.port)

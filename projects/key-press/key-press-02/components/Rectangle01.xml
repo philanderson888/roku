@@ -14,7 +14,7 @@
     m.myLabel.font.size=20
     m.myLabel.color="0xCCCCCC"
   end function
-  function onKeyEvent(key as String, press as Boolean) as Boolean
+  function onKeyEvent(key as String) as Boolean
     m.Label1 = m.top.findNode("Label1")
     m.Label2 = m.top.findNode("Label2")
     m.Label3 = m.top.findNode("Label3")

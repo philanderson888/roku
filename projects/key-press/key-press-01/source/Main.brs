@@ -1,5 +1,5 @@
 sub Main()
-    Print "PanelSet example"
+    Print "Key Press example"
     screen = CreateObject("roSGScreen")
     m.port = CreateObject("roMessagePort")
     print (m.port)
