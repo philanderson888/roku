@@ -5,9 +5,9 @@
         "type": "brightscript",
         "request": "launch",
         "name": "BrightScript Debug: Launch",
-        "host": "192.168.87.41",
+        "host": "192.168.87.39",
         "password": "developer",
-        "rootDir": "${workspaceFolder}",
+        "rootDir": "${workspaceFolder}/projects/key-press/key-press-03",
         "stopOnEntry": false
       }
    ]
