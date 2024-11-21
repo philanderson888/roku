@@ -227,5 +227,7 @@ https://github.com/rokucommunity/brighterscript-template
 npx degit rokucommunity/brighterscript-template hello-world-07-brighterscript -y
 cd hello-world-07-brighterscript
 npm install
-npm run package
+bsc
 ```
+
+this creates a zip file in the /out/ folder which can be manually uploaded to the tv screen

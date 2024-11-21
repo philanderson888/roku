@@ -1,0 +1,8 @@
+{
+    "rootDir": "./projects/key-press/key-press-02",
+    "stagingDir": "./out",
+    "scripts": {
+        "build-tests": "npx bsc",
+        "build-tdd": "npx bsc --project bsconfig-tdd.json"
+    }
+}

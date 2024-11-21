@@ -1,0 +1,8 @@
+{
+    "rootDir": "./projects/brighterscript/brighterscript-03-classes",
+    "stagingDir": "./out",
+    "scripts": {
+        "build-tests": "npx bsc",
+        "build-tdd": "npx bsc --project bsconfig-tdd.json"
+    }
+}
