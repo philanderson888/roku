@@ -1,5 +1,5 @@
 {
-    "rootDir": "./projects/key-press/key-press-03",
+    "rootDir": "./projects/key-press/key-press-02",
     "stagingDir": "./out",
     "scripts": {
         "build-tests": "npx bsc",
