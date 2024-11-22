@@ -1,7 +1,12 @@
+cd /Users/phil/github/RokuCommunity/roku/.scripts
+
+echo " "
+echo "pwd"
+pwd
+
 touch ./last_code_used
 while :
   do
-
     echo "========================="
     echo "        Roku Projects"
     echo "========================="
@@ -11,6 +16,7 @@ while :
     echo "k01 ... key-press-01"
     echo "k02 ... key-press-02"
     echo "k03 ... key-press-03"
+    echo "rd01 ... roku-deploy-01"
     echo " "
 
     last_code_used=$(cat ./last_code_used)
@@ -20,6 +26,8 @@ while :
     script_code=${script_code:-$last_code_used}
 
     echo $script_code > ./last_code_used
+
+
 
     if [ "$script_code" == "b03" ]; then
         yes | cp ../.launch/brighterscript-03.json ../.vscode/launch.json
@@ -40,6 +48,13 @@ while :
         cp ../.bsconfig/key-press-03.json ../bsconfig.json
         cd ../projects/key-press/key-press-03
         echo "hit f5 to start project"
+    elif [ "$script_code" == "rd01" ]; then
+        yes | cp ../.launch/roku-deploy-01.json ../.vscode/launch.json
+        yes | cp ../.bsconfig/roku-deploy-01.json ../bsconfig.json
+        cd ../projects/roku-deploy/roku-deploy-01
+        bsc
+    else
+        echo "Invalid project code"
     fi
 
 
