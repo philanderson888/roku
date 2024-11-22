@@ -14,6 +14,7 @@
   - [retry with `rooibos`](#retry-with-rooibos)
   - [retry by adding `rooibos` to `brighterscript` project](#retry-by-adding-rooibos-to-brighterscript-project)
   - [install brighterscript template](#install-brighterscript-template)
+  - [deploying an app using `roku-deploy`](#deploying-an-app-using-roku-deploy)
 
 ## getting started
 
@@ -231,3 +232,149 @@ bsc
 ```
 
 this creates a zip file in the /out/ folder which can be manually uploaded to the tv screen
+
+## deploying an app using `roku-deploy`
+
+`roku-deploy` is an npm package which is used to deploy a brighterscript app to your roku device
+
+using this as a guide
+
+https://github.com/RokuCommunity/roku-deploy#readme
+
+first of all let's install it using 
+
+```js
+npm install roku-deploy
+```
+
+we now have `package.json` as
+
+```json
+{
+  "dependencies": {
+    "roku-deploy": "^3.12.2"
+  }
+}
+```
+
+create a `roku-deploy.json` file
+
+```json
+{
+    "host": "192.168.1.101",
+    "password": "securePassword"
+}
+```
+
+add a node file to push zip to the tv
+
+```js
+var rokuDeploy = require('roku-deploy');
+
+//deploy a .zip package of your project to a roku device
+rokuDeploy.deploy({
+    host: 'ip-of-roku',
+    password: 'password for roku dev admin portal'
+    //other options if necessary
+}).then(function(){
+    //it worked
+}, function(error) {
+    //it failed
+    console.error(error);
+});
+```
+
+... this does not seem to work (see /projects/roku-deploy/roku-deploy-01)
+
+let's try a more complex version
+
+```js
+/create a signed package of your project
+rokuDeploy.publish({
+    host: 'ip-of-roku',
+    password: 'password for roku dev admin portal',
+    outDir: 'folder/where/your/zip/resides/',
+    outFile: 'filename-of-your-app.zip'
+    //...other options if necessary
+}).then(function(){
+    //the app has been sideloaded
+}, function(error) {
+    //it failed
+    console.error(error);
+});
+```
+
+
+this is not having any effect.
+
+current file is as follows
+
+```js
+var rokuDeploy = require('roku-deploy');
+
+console.log('deploying zip package to roku device...');
+
+console.log('__filename')
+console.log(__filename)
+console.log('__dirname')
+console.log(__dirname)
+
+outDir = __dirname + '/out'
+console.log('outDir')
+console.log(outDir)
+
+console.log('rokuDeploy')
+console.log(rokuDeploy)
+
+console.log('rokuDeploy.publish')
+console.log(rokuDeploy.publish)
+
+rokuDeploy.publish({
+    host: '192.168.87.39',
+    password: 'developer',
+    outDir: outDir,
+    outFile: 'roku-deploy-01.zip'
+}).then(function(){
+    console.log('deployed!');
+}, function(error) {
+    console.error('failed to deploy');
+    console.error(error);
+});
+```
+
+which does do something but not the deploy part
+
+```
+➜  roku-deploy-01 git:(main) ✗ node ./roku-deploy.js
+deploying zip package to roku device...
+__filename
+/Users/phil/github/RokuCommunity/roku/projects/roku-deploy/roku-deploy-01/roku-deploy.js
+__dirname
+/Users/phil/github/RokuCommunity/roku/projects/roku-deploy/roku-deploy-01
+outDir
+/Users/phil/github/RokuCommunity/roku/projects/roku-deploy/roku-deploy-01/out
+rokuDeploy ...
+```
+
+referring to the documentation we read
+
+https://github.com/RokuCommunity/roku-deploy?tab=readme-ov-file#running-roku-deploy-as-an-npm-script
+
+From an npm script in package.json. (Requires rokudeploy.json to exist at the root level where this is being run)
+
+```json
+{
+    "scripts": {
+        "deploy": "node roku-deploy.js"
+    }
+}
+```
+
+then we try running it with 
+
+```js
+npm run deploy
+```
+
+this definitely runs the same script but nothing actually deploys to the tv
+

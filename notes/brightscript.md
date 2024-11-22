@@ -86,6 +86,7 @@
 - onKeyEvent listener - keep all the logic for this in one place,rather than on grid components
 - message loops in preference to tasks !?!?!?!
 - ' # TODO
+- make images and components divisible by 3 pixels wide and high in order to help the roku compiler translate between 1080p FHD and 720p HD resolutions
 
 
 ## Developer Mode
