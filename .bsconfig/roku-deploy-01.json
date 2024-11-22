@@ -1,0 +1,14 @@
+{
+    "rootDir": "./projects/roku-deploy/roku-deploy-01",
+    "stagingDir": "./out",
+    "scripts": {
+        "build-tests": "npx bsc",
+        "build-tdd": "npx bsc --project bsconfig-tdd.json"
+    },
+    "files": [
+        "source/**/*",
+        "components/**/*",
+        "images/**/*",
+        "manifest"
+    ]
+}
