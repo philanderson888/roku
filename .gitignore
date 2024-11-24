@@ -110,3 +110,5 @@ dist
 ./roku-deploy-staging/
 roku-deploy.zip
 *.zip
+stagingDir/
+dist/
