@@ -1,24 +1,29 @@
 cd /Users/phil/github/RokuCommunity/roku/.scripts
 touch ./last_code_used
 
-while :
-  do
-    echo " "
-    echo " "
-    echo "========================="
-    echo "        Roku Projects"
-    echo "========================="
+deploy_code_to_roku_device () {
+    sleep 0.5
+    cd /Users/phil/github/RokuCommunity/roku/
+    node ./roku-deploy.js
+}
 
-    echo "Select a project to run:"
+get_project_code_from_user () {
+    sleep 2
+    cd /Users/phil/github/RokuCommunity/roku/.scripts
+    read -p "enter the project code: (press ENTER to use last code used [$last_code_used]): " script_code
+    script_code=${script_code:-$last_code_used}
+    echo $script_code > ./last_code_used
+}
+
+display_list_of_projects () {
+        echo "Select a project to run:"
 
     echo favourites
     echo "lg01 layout group 01"
     echo "ll01 label list 01 02 03 04"
     
     echo "bk01 background ... bg01/2 button group ... b01/2/3/4 brighterscript ... chk01/2 checklist ... cp01/2 component ... gd01 grid"
-    echo "gp01       ... grid panel 01"
-    echo "hw01 .. 08 ... hello world 01 02 03 04 05 06 07 08"
-    echo "kp01 .. 03  ... key-press-01 02 03"
+    echo "gp01 grid panel ... hw 01 ... 04  hello world ... kp 01 2 3 key press "
     echo "lg01    ... layout group 01"
     echo "lg02    ... layout group 02"
     echo "ml01    ... markup list 01"
@@ -38,15 +43,32 @@ while :
     echo "gd01       ... grid 01 (fix)"
 
     echo " "
+}
 
-    cd /Users/phil/github/RokuCommunity/roku/.scripts
-
+obtain_last_project_code_used () {
     echo " "
     last_code_used=$(cat ./last_code_used)
     echo last run this code was used $last_code_used
-
     script_code=$last_code_used
+}
 
+    
+
+while :
+  do
+    echo " "
+    echo " "
+    echo "========================="
+    echo "        Roku Projects"
+    echo "========================="
+
+    display_list_of_projects
+
+    cd /Users/phil/github/RokuCommunity/roku/.scripts
+
+    obtain_last_project_code_used   
+
+    valid_code=true
     if [ "$script_code" == "bk01" ]; then
         cp ../.launch/brighterscript.json ../.vscode/launch.json
         projectFolder="background"
@@ -218,35 +240,19 @@ while :
 
 
     elif [ "$script_code" == "hw04" ]; then
+
+        cp ../.launch/brighterscript.json ../.vscode/launch.json
+        projectFolder="hello-world"
         project="hello-world-04"
-        cp ../.launch/$project.json ../.vscode/launch.json 
+        projectPath="/Users/phil/github/RokuCommunity/roku/projects/$projectFolder/$project"
         cp ../.bsconfig/$project.json ../bsconfig.json
-        cd ../projects/hello-world/$project
-        echo "hit f5 to start project or command-shift-f5 to restart"
-    elif [ "$script_code" == "hw05" ]; then
-        project="hello-world-05"
-        cp ../.launch/$project.json ../.vscode/launch.json 
-        cp ../.bsconfig/$project.json ../bsconfig.json
-        cd ../projects/hello-world/$project
-        echo "hit f5 to start project or command-shift-f5 to restart"
-    elif [ "$script_code" == "hw06" ]; then
-        project="hello-world-06"
-        cp ../.launch/$project.json ../.vscode/launch.json 
-        cp ../.bsconfig/$project.json ../bsconfig.json
-        cd ../projects/hello-world/$project
-        echo "hit f5 to start project or command-shift-f5 to restart"
-    elif [ "$script_code" == "hw07" ]; then
-        project="hello-world-07"
-        cp ../.launch/$project.json ../.vscode/launch.json 
-        cp ../.bsconfig/$project.json ../bsconfig.json
-        cd ../projects/hello-world/$project
-        echo "hit f5 to start project or command-shift-f5 to restart"
-    elif [ "$script_code" == "hw08" ]; then
-        project="hello-world-08"
-        cp ../.launch/$project.json ../.vscode/launch.json 
-        cp ../.bsconfig/$project.json ../bsconfig.json
-        cd ../projects/hello-world/$project
-        echo "hit f5 to start project or command-shift-f5 to restart"
+        rm -rf /Users/phil/github/RokuCommunity/roku/dist
+        cp -R $projectPath /Users/phil/github/RokuCommunity/roku/dist
+
+
+
+
+
     elif [ "$script_code" == "kp01" ]; then
         cp ../.launch/brighterscript.json ../.vscode/launch.json
         projectFolder="key-press"
@@ -255,18 +261,23 @@ while :
         rm -rf /Users/phil/github/RokuCommunity/roku/dist
         cp -R /Users/phil/github/RokuCommunity/roku/projects/$projectFolder/$project /Users/phil/github/RokuCommunity/roku/dist
         echo "hit f5 to start project or command-shift-f5 to restart"
+
+
+
     elif [ "$script_code" == "kp02" ]; then
+
+    
+        cp ../.launch/brighterscript.json ../.vscode/launch.json
+        projectFolder="key-press"
         project="key-press-02"
-        cp ../.launch/$project.json ../.vscode/launch.json 
+        projectPath="/Users/phil/github/RokuCommunity/roku/projects/$projectFolder/$project"
         cp ../.bsconfig/$project.json ../bsconfig.json
-        cd ../projects/$project
-        echo "hit f5 to start project or command-shift-f5 to restart"
-    elif [ "$script_code" == "kp03" ]; then
-        project="key-press-03"
-        cp ../.launch/$project.json ../.vscode/launch.json 
-        cp ../.bsconfig/$project.json ../bsconfig.json
-        cd ../projects/$project
-        echo "hit f5 to start project or command-shift-f5 to restart"
+        rm -rf /Users/phil/github/RokuCommunity/roku/dist
+        cp -R $projectPath /Users/phil/github/RokuCommunity/roku/dist
+
+
+
+
     elif [ "$script_code" == "ll01" ]; then
         project="label-list-01"
         cp ../.launch/$project.json ../.vscode/launch.json
@@ -438,20 +449,14 @@ while :
         echo "hit f5 to start project or command-shift-f5 to restart"
 
     else
+        valid_code=false
         echo "Invalid project code"
     fi
 
-    sleep 0.5
+    if [ "$valid_code" == true ]; then
+        deploy_code_to_roku_device
+    fi
 
-    cd /Users/phil/github/RokuCommunity/roku/
-    node ./roku-deploy.js
-
-    sleep 3
-
-    cd /Users/phil/github/RokuCommunity/roku/.scripts
-    read -p "enter the project code: (press ENTER to use last code used [$last_code_used]): " script_code
-    script_code=${script_code:-$last_code_used}
-    echo $script_code > ./last_code_used
-
+    get_project_code_from_user
 
   done

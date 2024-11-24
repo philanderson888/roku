@@ -1,4 +1,8 @@
 sub Main()
+
+    print "note ... move all this work to variables folder and remove it from here ..."
+
+    
     print "debugging showChannelSGScreen"
     screen = CreateObject("roSGScreen")
     m.port = CreateObject("roMessagePort")
@@ -23,29 +27,102 @@ sub Main()
     Print "type of '1.0' is " + type(d)  '    Float
     Print 5 "th"
     Print "5".toint()+5    ' prints 10
-    'If type(5.tostr())<> "String" Then Stop
-    'If (-5).tostr()<>"-5" Then Stop
-    'If (1+2).tostr()<>"3" Then Stop
-    'If 5.tostr()<>"5" Then Stop
+    print type("5".toint()) ' Integer
+    print type("5".tofloat()) ' Float
+    print "5".tofloat() ' 5.0
+    print "5".toint() ' 5
+    
+    print "5".tostr() ' 5
+    print type("5".tostr()) ' String
+
+    print 5.tostr() ' 5
+
+    print (-5).tostr() ' -5
+    print (1+2).tostr() ' 3
+
+    print "i=-55"
     i=-55
-    'If i.tostr()<>"-55" Then Stop
-    'If 100%.tostr()<>"100" Then Stop
-    'If (-100%).tostr()<>"-100" Then Stop
-    y%=10
-    'If y%.tostr()<>"10" Then Stop
-    'If "5".toint()<>5 Or type("5".toint())<>"Integer" Then Stop
-    'If "5".tofloat()<>5.0 Or type("5".tofloat())<>"Float" Then Stop
+    
+    print "i.tostr() is ... "
+    print i.tostr()
+
+    print "i.tostr() <> -55 is ... "
+    print i.toStr() <> "-55"
+
+    print "100%.tostr() is ... "
+    print 100%.tostr()
+
+    print "100%.tostr() <> 100 is ... "
+    print 100%.tostr() <> "100"
+
+    print "-100%.tostr() is ... "
+    print (-100%).tostr()
+
+    print "-100%.tostr() <> -100 is ... "
+    print (-100%).tostr() <> "-100"
+   
+    print "y% = 10"
+    y% = 10
+
+    print "y%.tostr() is ... "
+    print y%.tostr()
+
+    print "y%.tostr() <> 10 is ... "
+    print y%.tostr() <> "10"
+
+    print "5.tostr() is ... "
+    print "5".tostr() 
+
+    print "5.toInt() is ... "
+    print "5".toint() 
+
+    print "5.toFloat() is ... "
+    print "5".tofloat()
+
+    print type("5.tofloat()")
+    print type("5".tofloat())
+
+    print "fs = -1.1"
     fs="-1.1"
-    'If fs.tofloat()<>-1.1 Or fs.toint()<>-1 Then Stop
-    'If "01234567".left(3)<>"012" Then Stop
-    'If "01234567".right(4)<>"4567" Then Stop
-    'If "01234567".mid(3)<>"34567" Then Stop
-    'If "01234567".mid(3,1)<>"3" Then Stop
-    'If "01234567".instr("56")<>5 Then Stop
-    'If "01234567".instr(6,"56")<>-1 Then Stop
-    'If "01234567".instr(0,"0")<>0 Then Stop
+
+    print "fs.tofloat() is ... "
+    print fs.tofloat()
+
+    print "fs.toint() is ... "
+    print fs.toint()
+
+    print "fs.tofloat() <> -1.1 ... "
+    print fs.tofloat() <> -1.1
+
+    print "fs.toint() <> -1 ... "
+    print fs.toint() <> -1
+
+    print "01234567 .left(3) is ... "
+    print "01234567".left(3)
+
+    print "01234567 .right(4) is ... "
+    print "01234567".right(4)
+
+    print "01234567 .mid(3) is ... "
+    print "01234567".mid(3)
+
+    print "01234567 .mid(3,1) is ... "
+    print "01234567".mid(3,1)
+
+    print "01234567 .instr(56) is ... "
+    print "01234567".instr("56")
+
+    print "01234567 .instr(6,56) is ... "
+    print "01234567".instr(6,"56")
+
+    print "01234567 .instr(0,0) is ... "
+    print "01234567".instr(0,"0")
+
     Print "quotes are escaped using quotes ie " + """" + "some value" + """"
+
     Print "exponent 2^3 is " + (2^3).tostr()
+
+    print "create an array and push items to it"
     array01 = [1,2,3]
     for each item in array01
         Print item
@@ -55,6 +132,9 @@ sub Main()
         sleep(30)
         Print item
     end for
+
+
+
     object01 = CreateObject("roAssociativeArray")
     object01.field="some value"
     Print "object declared with roAssociativeArray is """ + object01.field + """"
@@ -68,15 +148,18 @@ sub Main()
     for each key in object03 
         print " " key " = " object03[key]
     end for
-    ' objects
+
+    ' create a custom object using 'associative array
     Print "Creating a custom object"
     obj = ConstructMyObject()
     obj.Set("hi!")
     print obj.Get()
     print "--------"
     print obj
-    ' xml file
-    Print "reading xml file"
+
+
+    ' read 'photos' xml file
+    Print "reading xml file (failing for now)"
     rsp=CreateObject("roXMLElement")
     rsp.Parse(ReadAsciiFile("pkg:/example.xml"))
     Print "photos root element" rsp.photos
@@ -84,12 +167,16 @@ sub Main()
     Print "one photo element" rsp.photos.photo[0]
     Print "Print xml attribute value eg rsp.photos@perpage = " rsp.photos.perpage '100
     'Print "photo 0 id is " rsp.photos.photo[0].id
+    
+    
+    print "reading booklist xml file (failing for now)"
     rsp2=CreateObject("roXMLElement")
     rsp2.Parse(ReadAsciiFile("pkg:/booklist.xml"))
     Print "get xml booklist " rsp2.booklist
     Print "get xml booklist book" rsp2.booklist.book
     Print "get xml booklist book" rsp2.booklist.book.lang
-    ' set tv
+
+    
     screen.setMessagePort(m.port)
     scene = screen.CreateScene("HelloWorld")
     screen.show()
