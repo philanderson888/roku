@@ -1,5 +1,5 @@
 {
-    "rootDir": "${workspaceFolder}/projects/button-group/button-group-01",
+    "rootDir": "${workspaceFolder}/projects/button-group/button-group-02",
     "scripts": {
         "build-tests": "npx bsc",
         "build-tdd": "npx bsc --project bsconfig-tdd.json"

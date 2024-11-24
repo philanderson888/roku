@@ -1,0 +1,9 @@
+<?xml version = "1.0" encoding = "utf-8" ?> 
+<component name = "MainScene" extends = "Scene" initialFocus = "exampleButtonGroup" >
+  <script type="text/brightscript" uri="pkg:/components/MainScene.brs" />
+  <children>
+    <ButtonGroup id = "exampleButtonGroup" />
+ 		<Poster uri="pkg:/images/accedo-logo.jpg" translation="[ 300, 500 ]" />
+    <Label id="posterLabel" text="Button Group Example" translation="[150,100]" />
+  </children>
+</component>
