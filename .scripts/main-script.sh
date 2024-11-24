@@ -15,7 +15,7 @@ while :
     echo "lg01 layout group 01"
     echo "ll01 label list 01 02 03 04"
     
-    echo "bk01 background ... bg01/2 button group ... b01/2/3/4 brighterscript ... chk01/2 checklist ... cp01/2 component"
+    echo "bk01 background ... bg01/2 button group ... b01/2/3/4 brighterscript ... chk01/2 checklist ... cp01/2 component ... gd01 grid"
     echo "gp01       ... grid panel 01"
     echo "hw01 .. 08 ... hello world 01 02 03 04 05 06 07 08"
     echo "kp01 .. 03  ... key-press-01 02 03"
@@ -162,17 +162,20 @@ while :
 
 
     elif [ "$script_code" == "gd01" ]; then
-        project="grid-01"
-        cp ../.launch/$project.json ../.vscode/launch.json 
-        cp ../.bsconfig/$project.json ../bsconfig.json
-        cd ../projects/grid/$project
-        echo "hit f5 to start project or command-shift-f5 to restart"
+        echo "no project present"
+
+
     elif [ "$script_code" == "gp01" ]; then
+        cp ../.launch/brighterscript.json ../.vscode/launch.json
+        projectFolder="grid-panel"
         project="grid-panel-01"
-        cp ../.launch/$project.json ../.vscode/launch.json 
+        projectPath="/Users/phil/github/RokuCommunity/roku/projects/$projectFolder/$project"
         cp ../.bsconfig/$project.json ../bsconfig.json
-        cd ../projects/grid-panel/$project
-        echo "hit f5 to start project or command-shift-f5 to restart"
+        rm -rf /Users/phil/github/RokuCommunity/roku/dist
+        cp -R $projectPath /Users/phil/github/RokuCommunity/roku/dist
+
+
+
     elif [ "$script_code" == "hw01" ]; then
         project="hello-world-01"
         cp ../.launch/$project.json ../.vscode/launch.json 

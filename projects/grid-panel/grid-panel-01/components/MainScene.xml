@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="MainScene" extends="Scene"> 
+  <script type="text/brightscript" uri="pkg:/components/MainScene.brs" />
+	<children>
+    <Overhang translation="[60,60]" color="0x232323ff"  
+      backgroundUri="https://www.paperstreet.com/blog/wp-content/uploads/2016/04/iStock_000080733521_Double-768x513.jpg" 
+      title="Grid Panel 01" titleColor="0x1659de" showOptions="true" optionsText="some options" optionsAvailable="true"  /> 
+		<Label id="myLabel"  text="Grid Panel" width="800"  height="100"  horizAlign="center" vertAlign="center" translation="[100,150]" 	/>
+    <GridPanelDetail />
+	</children>
+</component>
