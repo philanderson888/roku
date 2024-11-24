@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "node-watch": "^0.7.4",
+    "roku-deploy": "^3.12.2"
+  }
+}
