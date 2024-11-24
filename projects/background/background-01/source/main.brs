@@ -1,6 +1,6 @@
 '********** Copyright 2016 Roku Corp.  All Rights Reserved. **********
 
-sub Main()
+sub main()
   print "This displays a background screen"
   showChannelSGScreen()
 end sub

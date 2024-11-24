@@ -15,7 +15,7 @@ while :
     echo "lg01 layout group 01"
     echo "ll01 label list 01 02 03 04"
     
-    echo "ba         ... background"
+    echo "bk       ... background"
     echo "bg01 02    ... button group 01 02"
     echo "b01 02 03  ... brighterscript 01 02 03-classes 04-variables"
     echo "chk01 02   ... checklist 01 02"
@@ -54,11 +54,15 @@ while :
 
     echo $script_code > ./last_code_used
 
-    if [ "$script_code" == "ba" ]; then
-        project="background"
-        cp ../.launch/$project.json ../.vscode/launch.json 
+    if [ "$script_code" == "bk01" ]; then
+        cp ../.launch/brighterscript.json ../.vscode/launch.json
+        projectFolder="background"
+        project="background-01"
+        projectPath="/Users/phil/github/RokuCommunity/roku/projects/$projectFolder/$project"
         cp ../.bsconfig/$project.json ../bsconfig.json
-        cd ../projects/$project
+        rm -rf /Users/phil/github/RokuCommunity/roku/dist
+        cp -R $projectPath /Users/phil/github/RokuCommunity/roku/dist
+        echo "files moved to dist folder ready for deployment"
         echo "hit f5 to start project or command-shift-f5 to restart"
       elif [ "$script_code" == "b01" ]; then
         project="brighterscript-01"
