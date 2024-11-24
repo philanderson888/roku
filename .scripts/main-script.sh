@@ -324,17 +324,29 @@ while :
 
 
     elif [ "$script_code" == "lg01" ]; then
+
+        cp ../.launch/brighterscript.json ../.vscode/launch.json
+        projectFolder="layout-group"
         project="layout-group-01"
         cp ../.launch/$project.json ../.vscode/launch.json
         cp ../.bsconfig/$project.json ../bsconfig.json
         cd ../projects/layout-group/$project
         echo "hit f5 to start project or command-shift-f5 to restart"
+
+
+
     elif [ "$script_code" == "lg02" ]; then
+
+        cp ../.launch/brighterscript.json ../.vscode/launch.json
+        projectFolder="layout-group"
         project="layout-group-02"
         cp ../.launch/$project.json ../.vscode/launch.json
         cp ../.bsconfig/$project.json ../bsconfig.json
         cd ../projects/layout-group/$project
         echo "hit f5 to start project or command-shift-f5 to restart"
+
+    
+
     elif [ "$script_code" == "ml01" ]; then
         project="markup-list-01"
         cp ../.launch/$project.json ../.vscode/launch.json
