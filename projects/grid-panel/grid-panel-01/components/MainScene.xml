@@ -7,5 +7,11 @@
       title="Grid Panel 01" titleColor="0x1659de" showOptions="true" optionsText="some options" optionsAvailable="true"  /> 
 		<Label id="myLabel"  text="Grid Panel" width="800"  height="100"  horizAlign="center" vertAlign="center" translation="[100,150]" 	/>
     <GridPanelDetail />
+    <GridPanel id="myGridPanel" translation="[100,250]" numRows="2" numColumns="2" rowHeight="200" columnWidth="200">
+      <Label id="label1" text="Label 1" width="200" height="200" horizAlign="center" vertAlign="center" />
+      <Label id="label2" text="Label 2" width="200" height="200" horizAlign="center" vertAlign="center" />
+      <Label id="label3" text="Label 3" width="200" height="200" horizAlign="center" vertAlign="center" />
+      <Label id="label4" text="Label 4" width="200" height="200" horizAlign="center" vertAlign="center" />
+    </GridPanel>
 	</children>
 </component>
