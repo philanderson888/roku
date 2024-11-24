@@ -1,10 +1,10 @@
 {
-    "rootDir": "./projects/key-press/key-press-01",
+    "rootDir": "./projects/label-list/label-list-04",
+    "stagingDir": "./out",
+    "retainStagingLocation": true,
+    "retainStagingDir": true,
     "scripts": {
         "build-tests": "npx bsc",
         "build-tdd": "npx bsc --project bsconfig-tdd.json"
-    },
-    "retainStagingDir": true,
-    "stagingDir": "/Users/phil/github/RokuCommunity/roku/dist",
-    "createPackage": false    
+    }
 }

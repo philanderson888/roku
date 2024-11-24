@@ -279,29 +279,50 @@ while :
 
 
     elif [ "$script_code" == "ll01" ]; then
+
+
+
+        cp ../.launch/brighterscript.json ../.vscode/launch.json
+        projectFolder="label-list"
         project="label-list-01"
-        cp ../.launch/$project.json ../.vscode/launch.json
+        projectPath="/Users/phil/github/RokuCommunity/roku/projects/$projectFolder/$project"
         cp ../.bsconfig/$project.json ../bsconfig.json
-        cd ../projects/label-list/$project
-        echo "hit f5 to start project or command-shift-f5 to restart"
+        rm -rf /Users/phil/github/RokuCommunity/roku/dist
+        cp -R $projectPath /Users/phil/github/RokuCommunity/roku/dist
+
+
     elif [ "$script_code" == "ll02" ]; then
+
+        cp ../.launch/brighterscript.json ../.vscode/launch.json
+        projectFolder="label-list"
         project="label-list-02"
-        cp ../.launch/$project.json ../.vscode/launch.json
+        projectPath="/Users/phil/github/RokuCommunity/roku/projects/$projectFolder/$project"
         cp ../.bsconfig/$project.json ../bsconfig.json
-        cd ../projects/label-list/$project
-        echo "hit f5 to start project or command-shift-f5 to restart"
+        rm -rf /Users/phil/github/RokuCommunity/roku/dist
+        cp -R $projectPath /Users/phil/github/RokuCommunity/roku/dist
+
+
     elif [ "$script_code" == "ll03" ]; then
+
+        cp ../.launch/brighterscript.json ../.vscode/launch.json
+        projectFolder="label-list"
         project="label-list-03"
-        cp ../.launch/$project.json ../.vscode/launch.json
+        projectPath="/Users/phil/github/RokuCommunity/roku/projects/$projectFolder/$project"
         cp ../.bsconfig/$project.json ../bsconfig.json
-        cd ../projects/label-list/$project-focus-font
-        echo "hit f5 to start project or command-shift-f5 to restart"
+        rm -rf /Users/phil/github/RokuCommunity/roku/dist
+        cp -R $projectPath /Users/phil/github/RokuCommunity/roku/dist       
+
     elif [ "$script_code" == "ll04" ]; then
+
+        cp ../.launch/brighterscript.json ../.vscode/launch.json
+        projectFolder="label-list"
         project="label-list-04"
-        cp ../.launch/$project.json ../.vscode/launch.json
+        projectPath="/Users/phil/github/RokuCommunity/roku/projects/$projectFolder/$project"
         cp ../.bsconfig/$project.json ../bsconfig.json
-        cd ../projects/label-list/$project-focus-style
-        echo "hit f5 to start project or command-shift-f5 to restart"
+        rm -rf /Users/phil/github/RokuCommunity/roku/dist
+        cp -R $projectPath /Users/phil/github/RokuCommunity/roku/dist
+
+
     elif [ "$script_code" == "lg01" ]; then
         project="layout-group-01"
         cp ../.launch/$project.json ../.vscode/launch.json
