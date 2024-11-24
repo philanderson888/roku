@@ -12,16 +12,22 @@
 
     sub init()
       m.top.functionName = "getcontent"
+      m.top.control = "RUN"
     end sub
 
     sub getcontent()
-      content = createObject("roSGNode", "ContentNode")
 
+      print "getting content"
+
+      content = createObject("roSGNode", "ContentNode")
       contentxml = createObject("roXMLElement")
 
       readInternet = createObject("roUrlTransfer")
       readInternet.setUrl(m.top.contenturi)
+
       contentxml.parse(readInternet.GetToString())
+
+      print "contentxml: "; contentxml
 
       if contentxml.getName()="Content"
         for each item in contentxml.GetNamedElements("item")

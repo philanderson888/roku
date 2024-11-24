@@ -8,13 +8,15 @@
       m.postergrid = m.top.findNode("examplePosterGrid")
       m.postergrid.translation = [ 130, 160 ]
       m.readPosterGridTask = createObject("roSGNode", "ContentReader")
-      m.readPosterGridTask.contenturi = "http://192.168.87.44:5500/projects/poster-grid-02/data/data3.xml"
+      m.readPosterGridTask.contenturi = "https://raw.githubusercontent.com/philanderson888/data/refs/heads/master/brightscript/data3.xml"
       m.readPosterGridTask.observeField("content", "showpostergrid")
       m.readPosterGridTask.control = "RUN"
     end sub
 
     sub showpostergrid()
       m.postergrid.content = m.readPosterGridTask.content
+      print "m.postergrid.content: "; m.postergrid.content
+      print "postergrid content ... cannot be viewed as json for some reason, not sure why" 
     end sub
 
     ]]>

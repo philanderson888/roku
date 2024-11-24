@@ -337,24 +337,47 @@ while :
         cp -R $projectPath /Users/phil/github/RokuCommunity/roku/dist
 
 
+
+
+
+
     elif [ "$script_code" == "pg01" ]; then
+
+        cp ../.launch/brighterscript.json ../.vscode/launch.json
+        projectFolder="poster-grid"
         project="poster-grid-01"
-        cp ../.launch/$project.json ../.vscode/launch.json
+        projectPath="/Users/phil/github/RokuCommunity/roku/projects/$projectFolder/$project"
         cp ../.bsconfig/$project.json ../bsconfig.json
-        cd ../projects/poster-grid/$project
-        echo "hit f5 to start project or command-shift-f5 to restart"
+        rm -rf /Users/phil/github/RokuCommunity/roku/dist
+        cp -R $projectPath /Users/phil/github/RokuCommunity/roku/dist
+
+
+
+
     elif [ "$script_code" == "pg02" ]; then
+
+
+        cp ../.launch/brighterscript.json ../.vscode/launch.json
+        projectFolder="poster-grid"
         project="poster-grid-02"
-        cp ../.launch/$project.json ../.vscode/launch.json
+        projectPath="/Users/phil/github/RokuCommunity/roku/projects/$projectFolder/$project"
         cp ../.bsconfig/$project.json ../bsconfig.json
-        cd ../projects/poster-grid/$project
-        echo "hit f5 to start project or command-shift-f5 to restart"
+        rm -rf /Users/phil/github/RokuCommunity/roku/dist
+        cp -R $projectPath /Users/phil/github/RokuCommunity/roku/dist
+
+
     elif [ "$script_code" == "pg03" ]; then
+
+
+        cp ../.launch/brighterscript.json ../.vscode/launch.json
+        projectFolder="poster-grid"
         project="poster-grid-03"
-        cp ../.launch/$project.json ../.vscode/launch.json
+        projectPath="/Users/phil/github/RokuCommunity/roku/projects/$projectFolder/$project"
         cp ../.bsconfig/$project.json ../bsconfig.json
-        cd ../projects/poster-grid/$project
-        echo "hit f5 to start project or command-shift-f5 to restart"
+        rm -rf /Users/phil/github/RokuCommunity/roku/dist
+        cp -R $projectPath /Users/phil/github/RokuCommunity/roku/dist
+
+
     elif [ "$script_code" == "rd01" ]; then
         project="roku-deploy-01"
         yes | cp ../.launch/$project.json ../.vscode/launch.json
