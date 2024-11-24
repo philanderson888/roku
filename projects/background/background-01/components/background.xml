@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?> 
-
-<!--********** Copyright 2016 Roku Corp.  All Rights Reserved. **********-->
-
 <component name = "Background" extends = "Scene" >
-
   <script type="text/brightscript" uri="pkg:/components/background.brs" />
-
   <children>
-
+      <Label id="myLabel" 
+      	text="Roku Hello World From Phil ... "
+      	width="1280" 
+      	height="720" 
+      	horizAlign="center"
+      	vertAlign="center"
+    	/>
   </children>
-
 </component>

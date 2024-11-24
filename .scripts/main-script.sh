@@ -15,7 +15,7 @@ while :
     echo "lg01 layout group 01"
     echo "ll01 label list 01 02 03 04"
     
-    echo "bk       ... background"
+    echo "bk01       ... background"
     echo "bg01 02    ... button group 01 02"
     echo "b01 02 03  ... brighterscript 01 02 03-classes 04-variables"
     echo "chk01 02   ... checklist 01 02"
@@ -49,10 +49,7 @@ while :
     last_code_used=$(cat ./last_code_used)
     echo last run this code was used $last_code_used
 
-    read -p "enter the project code: (press ENTER to use last code used [$last_code_used]): " script_code
-    script_code=${script_code:-$last_code_used}
-
-    echo $script_code > ./last_code_used
+    script_code=$last_code_used
 
     if [ "$script_code" == "bk01" ]; then
         cp ../.launch/brighterscript.json ../.vscode/launch.json
@@ -92,18 +89,34 @@ while :
         cd ../projects/brighterscript/$project
         bsc
         echo "this is a brighterscrpt compiled project so ... to start the project"
+
+
+
     elif [ "$script_code" == "bg01" ]; then
+        cp ../.launch/brighterscript.json ../.vscode/launch.json
+        projectFolder="button-group"
         project="button-group-01"
-        cp ../.launch/$project.json ../.vscode/launch.json 
+        projectPath="/Users/phil/github/RokuCommunity/roku/projects/$projectFolder/$project"
         cp ../.bsconfig/$project.json ../bsconfig.json
-        cd ../projects/button-group/$project
+        rm -rf /Users/phil/github/RokuCommunity/roku/dist
+        cp -R $projectPath /Users/phil/github/RokuCommunity/roku/dist
+        echo "files moved to dist folder ready for deployment"
         echo "hit f5 to start project or command-shift-f5 to restart"
+
+
     elif [ "$script_code" == "bg02" ]; then
+        cp ../.launch/brighterscript.json ../.vscode/launch.json
+        projectFolder="button-group"
         project="button-group-02"
-        cp ../.launch/$project.json ../.vscode/launch.json 
+        projectPath="/Users/phil/github/RokuCommunity/roku/projects/$projectFolder/$project"
         cp ../.bsconfig/$project.json ../bsconfig.json
-        cd  ../projects/button-group/$project
+        rm -rf /Users/phil/github/RokuCommunity/roku/dist
+        cp -R $projectPath /Users/phil/github/RokuCommunity/roku/dist
+        echo "files moved to dist folder ready for deployment"
         echo "hit f5 to start project or command-shift-f5 to restart"
+
+
+
     elif [ "$script_code" == "chk01" ]; then
         project="checklist-01"
         cp ../.launch/$project.json ../.vscode/launch.json 
@@ -388,4 +401,11 @@ while :
     node ./roku-deploy.js
 
     sleep 3
+
+    cd /Users/phil/github/RokuCommunity/roku/.scripts
+    read -p "enter the project code: (press ENTER to use last code used [$last_code_used]): " script_code
+    script_code=${script_code:-$last_code_used}
+    echo $script_code > ./last_code_used
+
+
   done
