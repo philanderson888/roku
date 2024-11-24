@@ -1,0 +1,10 @@
+{
+    "rootDir": "./projects/label-list/label-list-04-focus-style",
+    "stagingDir": "./out",
+    "retainStagingLocation": true,
+    "retainStagingDir": true,
+    "scripts": {
+        "build-tests": "npx bsc",
+        "build-tdd": "npx bsc --project bsconfig-tdd.json"
+    }
+}

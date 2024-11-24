@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <component name="Rectangle01" extends="Scene"> 
 	<children>
-    <Overhang translation="[60,60]" color="0x232323ff"  backgroundUri="https://www.paperstreet.com/blog/wp-content/uploads/2016/04/iStock_000080733521_Double-768x513.jpg" title="Overhang Title" titleColor="0x1659de" showOptions="true" optionsText="some options" optionsAvailable="true"  /> 
+    <Overhang translation="[60,60]" color="0x232323ff"  backgroundUri="https://www.paperstreet.com/blog/wp-content/uploads/2016/04/iStock_000080733521_Double-768x513.jpg" title="Key Press 02" titleColor="0x1659de" showOptions="true" optionsText="some options" optionsAvailable="true"  /> 
     <Label id="Label1"  text="1" width="800"  height="100"  horizAlign="center" vertAlign="center" translation="[100,200]" />
     <Label id="Label2"  text="2" width="800"  height="100"  horizAlign="center" vertAlign="center" translation="[200,300]" />
     <Label id="Label3"  text="3" width="800"  height="100"  horizAlign="center" vertAlign="center" translation="[300,400]" />

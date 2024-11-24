@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "brightscript",
+        "request": "launch",
+        "name": "BrightScript Debug: Launch",
+        "host": "192.168.87.39",
+        "password": "developer",
+        "rootDir": "${workspaceFolder}/projects/video/video-07",
+        "stagingDir": "${workspaceFolder}/out/stagingDir",
+        "retainStagingFolder": true,
+        "stopOnEntry": false
+      }
+   ]
+}

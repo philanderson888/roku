@@ -1,6 +1,8 @@
 {
     "rootDir": "./projects/roku-deploy/roku-deploy-01",
     "stagingDir": "./out",
+    "retainStagingLocation": true,
+    "retainStagingDir": true,
     "scripts": {
         "build-tests": "npx bsc",
         "build-tdd": "npx bsc --project bsconfig-tdd.json"

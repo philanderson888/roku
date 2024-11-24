@@ -1,8 +1,10 @@
 {
     "rootDir": "./projects/key-press/key-press-01",
-    "stagingDir": "./out",
     "scripts": {
         "build-tests": "npx bsc",
         "build-tdd": "npx bsc --project bsconfig-tdd.json"
-    }
+    },
+    "retainStagingDir": true,
+    "stagingDir": "/Users/phil/github/RokuCommunity/roku/dist",
+    "createPackage": false    
 }

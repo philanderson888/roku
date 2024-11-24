@@ -8,6 +8,8 @@
         "host": "192.168.87.39",
         "password": "developer",
         "rootDir": "${workspaceFolder}/projects/roku-deploy/roku-deploy-01",
+        "stagingDir": "${workspaceFolder}/out/stagingDir",
+        "retainStagingFolder": true,
         "stopOnEntry": false
       }
    ]

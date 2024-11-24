@@ -1,7 +1,7 @@
 '********** Copyright 2016 Roku Corp.  All Rights Reserved. **********
 
 sub Main()
-  print "Hello, World 555"
+  print "This displays a background screen"
   showChannelSGScreen()
 end sub
 
@@ -9,7 +9,7 @@ sub showChannelSGScreen()
   screen = CreateObject("roSGScreen")
   m.port = CreateObject("roMessagePort")
   screen.setMessagePort(m.port)
-  scene = screen.CreateScene("Background")
+  screen.CreateScene("Background")
   screen.show()
 
   while(true)

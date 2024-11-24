@@ -1,8 +1,10 @@
 {
-    "rootDir": "./projects/brighterscript/brighterscript-03-classes",
-    "stagingDir": "./out",
+    "rootDir": "/Users/phil/github/RokuCommunity/roku/projects/brighterscript/brighterscript-03-classes",
     "scripts": {
         "build-tests": "npx bsc",
         "build-tdd": "npx bsc --project bsconfig-tdd.json"
-    }
+    },
+    "retainStagingDir": true,
+    "stagingDir": "/Users/phil/github/RokuCommunity/roku/dist",
+    "createPackage": false
 }
