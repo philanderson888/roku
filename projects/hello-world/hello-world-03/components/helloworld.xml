@@ -1,33 +1,51 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<component name="HelloWorld" extends="Scene"> 
+<component name="HelloWorld" extends="Group"> 
+  <script type="text/brightscript" uri="pkg:/components/HelloWorld.brs" />
 	<children>
-      <Label id="myLabel" 
-      	text="label 1"
+      <Label id="label01" 
+      	text="label 111"
+      	width="1280" 
+      	height="720" 
+        translation="[150,150]"
+     	/>
+
+      <Label id="label02" 
+      	text="label 2222"
       	width="1280" 
       	height="720" 
       	horizAlign="center"
       	vertAlign="center"
      	/>
+
+
+	  <Label id="myLabel" 
+      	text="Hello John"
+      	width="1280" 
+      	height="720" 
+		translation="[0,500]"
+     	/>
       <Label id="myLabel2" 
-      	text="label 2"
-      	width="500" 
+      	text="John TV"
+      	width="1000" 
       	height="400" 
       	horizAlign="right"
       	vertAlign="center"
      	/>
-       
+      <Label id="myLabel3" 
+      	text="...Hey"
+      	width="500" 
+      	height="200" 
+      	horizAlign="left"
+      	vertAlign="center"
+     	/>
+	    <Label id="myLabel4" 
+      	text="...You !!!"
+      	width="500" 
+      	height="200" 
+      	horizAlign="left"
+      	vertAlign="bottom"
+     	/>    
+
+
     </children>
-<script type="text/brightscript" >
-<![CDATA[
-  function init()
-    m.top.setFocus(true)
-    m.myLabel = m.top.findNode("myLabel")
-    m.myLabel.font.size=150
-    m.myLabel.color="0xCCCCCC"
-    m.myLabel2 = m.top.findNode("myLabel2")
-    m.myLabel2.font.size=50
-    m.myLabel2.color="0xdddddd"
-  end function
-]]>
-</script>
 </component>

@@ -204,11 +204,19 @@ while :
 
 
     elif [ "$script_code" == "hw03" ]; then
+        
+        cp ../.launch/brighterscript.json ../.vscode/launch.json
+        projectFolder="hello-world"
         project="hello-world-03"
-        cp ../.launch/$project.json ../.vscode/launch.json 
+        projectPath="/Users/phil/github/RokuCommunity/roku/projects/$projectFolder/$project"
         cp ../.bsconfig/$project.json ../bsconfig.json
-        cd ../projects/hello-world/$project
-        echo "hit f5 to start project or command-shift-f5 to restart"
+        rm -rf /Users/phil/github/RokuCommunity/roku/dist
+        cp -R $projectPath /Users/phil/github/RokuCommunity/roku/dist
+
+
+
+
+
     elif [ "$script_code" == "hw04" ]; then
         project="hello-world-04"
         cp ../.launch/$project.json ../.vscode/launch.json 

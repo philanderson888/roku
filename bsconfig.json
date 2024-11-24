@@ -1,5 +1,5 @@
 {
-    "rootDir": "${workspaceFolder}/projects/hello-world/hello-world-02",
+    "rootDir": "${workspaceFolder}/projects/hello-world/hello-world-03",
     "scripts": {
         "build-tests": "npx bsc",
         "build-tdd": "npx bsc --project bsconfig-tdd.json"
