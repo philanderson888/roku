@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<component name="OverhangExample" extends="Scene"> 
+<component name="OverhangScene" extends="Scene"> 
 <interface>
     <field id="contenturi" type="uri" />
     <field id="content" type="node" />
-	 <function name="doSomething" />
+	<function name="doSomething" />
 </interface>
 	<children>
 		<Label id="myLabel"  text="1" width="1280"  height="720"  
@@ -32,6 +32,9 @@
 	'customView = CreateObject("roSGNode","CustomView")
     'm.top.appendChild(customView)
     'customView.setFocus(true)
+  end function
+  function doSomething()
+	m.myLabel.text = "2"
   end function
 ]]>
 </script>

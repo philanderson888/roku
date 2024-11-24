@@ -24,8 +24,8 @@ display_list_of_projects () {
     echo "ml01 markup list 01 02 03"
     
     echo "bk01 background ... bg01/2 button group ... b01/2/3/4 brighterscript ... chk01/2 checklist ... cp01/2 component ... gd01 grid"
-    echo "gp01 grid panel ... hw 01 ... 04  hello world ... kp 01 2 3 key press  ml01 02 03 markup list 01 02 03 ... over overhang pg01 02 03 poster grid 01 02 03"
-    echo "rb01 rooibos ... rect01/2 rectangle ... rd01 roku deploy ... rl01/2/3 row list ... vd01 .. 08 video"
+    echo "gp01 grid panel ... hw 01 ... 04  hello world ... kp 01 2 3 key press  ml01 02 03 markup list 01 02 03 ... oh01 overhang ... "
+    echo "pg01 02 03 poster grid 01 02 03   rb01 rooibos ... rect01/2 rectangle ... rd01 roku deploy ... rl01/2/3 row list ... vd01 .. 08 video"
     echo "vd01 .. 08 ... video 01 .. 08 ... 05 is the only one which works, others the feed is outdated"
 
     echo fix
@@ -325,13 +325,18 @@ while :
 
 
 
+    elif [ "$script_code" == "oh01" ]; then
 
-    elif [ "$script_code" == "over" ]; then
-        project="overhang"
-        cp ../.launch/$project.json ../.vscode/launch.json
+
+        cp ../.launch/brighterscript.json ../.vscode/launch.json
+        projectFolder="overhang"
+        project="overhang-01"
+        projectPath="/Users/phil/github/RokuCommunity/roku/projects/$projectFolder/$project"
         cp ../.bsconfig/$project.json ../bsconfig.json
-        cd ../projects/overhang/$project
-        echo "hit f5 to start project or command-shift-f5 to restart"
+        rm -rf /Users/phil/github/RokuCommunity/roku/dist
+        cp -R $projectPath /Users/phil/github/RokuCommunity/roku/dist
+
+
     elif [ "$script_code" == "pg01" ]; then
         project="poster-grid-01"
         cp ../.launch/$project.json ../.vscode/launch.json
