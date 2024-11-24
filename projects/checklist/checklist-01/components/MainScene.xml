@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="MainScene" extends="Scene"> 
+  <script type="text/brightscript" uri="pkg:/components/MainScene.brs" />
+	<children>
+    <Overhang translation="[60,60]" color="0x232323ff"  
+      backgroundUri="https://www.paperstreet.com/blog/wp-content/uploads/2016/04/iStock_000080733521_Double-768x513.jpg" 
+      title="Checklist 01" titleColor="0x1659de" showOptions="true" optionsText="some options" optionsAvailable="true"  /> 
+		<Label id="myLabel"  text="1" width="100"  height="100"  horizAlign="center" vertAlign="center" translation="[100,300]" 	/>
+    <CheckListExample />
+    <RectangleExample />
+    <LabelListExample />
+	</children>
+</component>

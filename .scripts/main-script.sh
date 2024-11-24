@@ -118,17 +118,31 @@ while :
 
 
     elif [ "$script_code" == "chk01" ]; then
+        cp ../.launch/brighterscript.json ../.vscode/launch.json
+        projectFolder="checklist"
         project="checklist-01"
-        cp ../.launch/$project.json ../.vscode/launch.json 
+        projectPath="/Users/phil/github/RokuCommunity/roku/projects/$projectFolder/$project"
         cp ../.bsconfig/$project.json ../bsconfig.json
-        cd ../projects/$project
+        rm -rf /Users/phil/github/RokuCommunity/roku/dist
+        cp -R $projectPath /Users/phil/github/RokuCommunity/roku/dist
+        echo "files moved to dist folder ready for deployment"
         echo "hit f5 to start project or command-shift-f5 to restart"
+
+
+
     elif [ "$script_code" == "chk02" ]; then
+
+        cp ../.launch/brighterscript.json ../.vscode/launch.json
+        projectFolder="checklist"
         project="checklist-02"
-        cp ../.launch/$project.json ../.vscode/launch.json 
+        projectPath="/Users/phil/github/RokuCommunity/roku/projects/$projectFolder/$project"
         cp ../.bsconfig/$project.json ../bsconfig.json
-        cd ../projects/$project
+        rm -rf /Users/phil/github/RokuCommunity/roku/dist
+        cp -R $projectPath /Users/phil/github/RokuCommunity/roku/dist
+        echo "files moved to dist folder ready for deployment"
         echo "hit f5 to start project or command-shift-f5 to restart"
+
+
     elif [ "$script_code" == "cp01" ]; then
         project="component-01"
         cp ../.launch/$project.json ../.vscode/launch.json 
