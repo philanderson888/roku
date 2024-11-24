@@ -2,14 +2,6 @@ sub Main()
     Print "Key Press 02 example"
     screen = CreateObject("roSGScreen")
     m.port = CreateObject("roMessagePort")
-    print (m.port)
-    ' array
-    array01 = [1,2,3]
-    array01.push(4)
-    for each item in array01
-        Print item
-    end for
-    ' tv
     screen.setMessagePort(m.port)
     screen.CreateScene("Rectangle01")
     screen.show()
@@ -20,5 +12,4 @@ sub Main()
             if msg.isScreenClosed() then return
         end if
     end while
-
 end sub
