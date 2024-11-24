@@ -1,8 +1,0 @@
-{
-  "scripts": {
-    "deploy": "node roku-deploy.js"
-  },
-  "dependencies": {
-    "roku-deploy": "^3.12.2"
-  }
-}

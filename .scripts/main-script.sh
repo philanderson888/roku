@@ -19,14 +19,13 @@ display_list_of_projects () {
         echo "Select a project to run:"
 
     echo favourites
-    echo "lg01 layout group 01"
     echo "ll01 label list 01 02 03 04"
     echo "ml01 markup list 01 02 03"
     
     echo "bk01 background ... bg01/2 button group ... b01/2/3/4 brighterscript ... chk01/2 checklist ... cp01/2 component ... gd01 grid"
     echo "gp01 grid panel ... hw 01 ... 04  hello world ... kp 01 2 3 key press  ml01 02 03 markup list 01 02 03 ... oh01 overhang ... "
     echo "pg01 02 03 poster grid 01 02 03   rb01 rooibos ... rect01/2 rectangle ... rd01 roku deploy ... rl01/2/3 row list ... vd01 .. 08 video"
-    echo "vd01 .. 08 ... video 01 .. 08 ... 05 is the only one which works, others the feed is outdated"
+    echo "vb01 variables ...  vd01 .. 08 ... video 01 .. 08 ... 05 is the only one which works, others the feed is outdated"
 
     echo fix
     echo "gd01       ... grid 01 (fix)"
@@ -378,97 +377,140 @@ while :
         cp -R $projectPath /Users/phil/github/RokuCommunity/roku/dist
 
 
-    elif [ "$script_code" == "rd01" ]; then
-        project="roku-deploy-01"
-        yes | cp ../.launch/$project.json ../.vscode/launch.json
-        yes | cp ../.bsconfig/$project.json ../bsconfig.json
-        cd ../projects/roku-deploy/$project
-        bsc
-        echo "this is a brighterscrpt compiled project so ... to start the project"
-    elif [ "$script_code" == "rb01" ]; then
-        project="rooibos-01"
-        cp ../.launch/$project.json ../.vscode/launch.json
-        cp ../.bsconfig/$project.json ../bsconfig.json
-        cd ../projects/rooibos/$project
-        echo "hit f5 to start project or command-shift-f5 to restart"
-    elif [ "$script_code" == "rect01" ]; then
-        project="rectangle-01"
-        cp ../.launch/$project.json ../.vscode/launch.json
-        cp ../.bsconfig/$project.json ../bsconfig.json
-        cd ../projects/rectangle/$project
-        echo "hit f5 to start project or command-shift-f5 to restart"
-    elif [ "$script_code" == "rect02" ]; then
-        project="rectangle-02"
-        cp ../.launch/$project.json ../.vscode/launch.json
-        cp ../.bsconfig/$project.json ../bsconfig.json
-        cd ../projects/rectangle/$project
-        echo "hit f5 to start project or command-shift-f5 to restart"
+
     elif [ "$script_code" == "rl01" ]; then
+
+        cp ../.launch/brighterscript.json ../.vscode/launch.json
+        projectFolder="row-list"
         project="row-list-01"
-        cp ../.launch/$project.json ../.vscode/launch.json
+        projectPath="/Users/phil/github/RokuCommunity/roku/projects/$projectFolder/$project"
         cp ../.bsconfig/$project.json ../bsconfig.json
-        cd ../projects/row-list/$project
-        echo "hit f5 to start project or command-shift-f5 to restart"
+        rm -rf /Users/phil/github/RokuCommunity/roku/dist
+        cp -R $projectPath /Users/phil/github/RokuCommunity/roku/dist
+
     elif [ "$script_code" == "rl02" ]; then
+
+        cp ../.launch/brighterscript.json ../.vscode/launch.json
+        projectFolder="row-list"
         project="row-list-02"
-        cp ../.launch/$project.json ../.vscode/launch.json
+        projectPath="/Users/phil/github/RokuCommunity/roku/projects/$projectFolder/$project"
         cp ../.bsconfig/$project.json ../bsconfig.json
-        cd ../projects/row-list/$project
-        echo "hit f5 to start project or command-shift-f5 to restart"
+        rm -rf /Users/phil/github/RokuCommunity/roku/dist
+        cp -R $projectPath /Users/phil/github/RokuCommunity/roku/dist
+        
+
     elif [ "$script_code" == "rl03" ]; then
+        
+        cp ../.launch/brighterscript.json ../.vscode/launch.json
+        projectFolder="row-list"
         project="row-list-03"
-        cp ../.launch/$project.json ../.vscode/launch.json
+        projectPath="/Users/phil/github/RokuCommunity/roku/projects/$projectFolder/$project"
         cp ../.bsconfig/$project.json ../bsconfig.json
-        cd ../projects/row-list/$project
-        echo "hit f5 to start project or command-shift-f5 to restart"
+        rm -rf /Users/phil/github/RokuCommunity/roku/dist
+        cp -R $projectPath /Users/phil/github/RokuCommunity/roku/dist
+
+
+    elif [ "$script_code" == "vb01" ]; then
+
+        cp ../.launch/brighterscript.json ../.vscode/launch.json
+        projectFolder="variables"
+        project="variables-01"
+        projectPath="/Users/phil/github/RokuCommunity/roku/projects/$projectFolder/$project"
+        cp ../.bsconfig/$project.json ../bsconfig.json
+        rm -rf /Users/phil/github/RokuCommunity/roku/dist
+        cp -R $projectPath /Users/phil/github/RokuCommunity/roku/dist
+
+    
     elif [ "$script_code" == "vd01" ]; then
+
+        cp ../.launch/brighterscript.json ../.vscode/launch.json
+        projectFolder="video"
         project="video-01"
-        cp ../.launch/$project.json ../.vscode/launch.json
+        projectPath="/Users/phil/github/RokuCommunity/roku/projects/$projectFolder/$project"
         cp ../.bsconfig/$project.json ../bsconfig.json
-        cd ../projects/video/$project
-        echo "hit f5 to start project or command-shift-f5 to restart"
+        rm -rf /Users/phil/github/RokuCommunity/roku/dist
+        cp -R $projectPath /Users/phil/github/RokuCommunity/roku/dist
+
+
     elif [ "$script_code" == "vd02" ]; then
+
+
+        cp ../.launch/brighterscript.json ../.vscode/launch.json
+        projectFolder="video"
         project="video-02"
-        cp ../.launch/$project.json ../.vscode/launch.json
+        projectPath="/Users/phil/github/RokuCommunity/roku/projects/$projectFolder/$project"
         cp ../.bsconfig/$project.json ../bsconfig.json
-        cd ../projects/video/$project
-        echo "hit f5 to start project or command-shift-f5 to restart"
+        rm -rf /Users/phil/github/RokuCommunity/roku/dist
+        cp -R $projectPath /Users/phil/github/RokuCommunity/roku/dist
+
+
     elif [ "$script_code" == "vd03" ]; then
+
+
+        cp ../.launch/brighterscript.json ../.vscode/launch.json
+        projectFolder="video"
         project="video-03"
-        cp ../.launch/$project.json ../.vscode/launch.json
+        projectPath="/Users/phil/github/RokuCommunity/roku/projects/$projectFolder/$project"
         cp ../.bsconfig/$project.json ../bsconfig.json
-        cd ../projects/video/$project
-        echo "hit f5 to start project or command-shift-f5 to restart"
+        rm -rf /Users/phil/github/RokuCommunity/roku/dist
+        cp -R $projectPath /Users/phil/github/RokuCommunity/roku/dist
+
+
     elif [ "$script_code" == "vd04" ]; then
+
+
+        cp ../.launch/brighterscript.json ../.vscode/launch.json
+        projectFolder="video"
         project="video-04"
-        cp ../.launch/$project.json ../.vscode/launch.json
+        projectPath="/Users/phil/github/RokuCommunity/roku/projects/$projectFolder/$project"
         cp ../.bsconfig/$project.json ../bsconfig.json
-        cd ../projects/video/$project
-        echo "hit f5 to start project or command-shift-f5 to restart"
+        rm -rf /Users/phil/github/RokuCommunity/roku/dist
+        cp -R $projectPath /Users/phil/github/RokuCommunity/roku/dist
+
+    
     elif [ "$script_code" == "vd05" ]; then
+
+
+        cp ../.launch/brighterscript.json ../.vscode/launch.json
+        projectFolder="video"
         project="video-05"
-        cp ../.launch/$project.json ../.vscode/launch.json
+        projectPath="/Users/phil/github/RokuCommunity/roku/projects/$projectFolder/$project"
         cp ../.bsconfig/$project.json ../bsconfig.json
-        cd ../projects/video/$project
-        echo "hit f5 to start project or command-shift-f5 to restart"
+        rm -rf /Users/phil/github/RokuCommunity/roku/dist
+        cp -R $projectPath /Users/phil/github/RokuCommunity/roku/dist
+
     elif [ "$script_code" == "vd06" ]; then
+
+
+        cp ../.launch/brighterscript.json ../.vscode/launch.json
+        projectFolder="video"
         project="video-06"
-        cp ../.launch/$project.json ../.vscode/launch.json
+        projectPath="/Users/phil/github/RokuCommunity/roku/projects/$projectFolder/$project"
         cp ../.bsconfig/$project.json ../bsconfig.json
-        cd ../projects/video/$project
-        echo "hit f5 to start project or command-shift-f5 to restart"
+        rm -rf /Users/phil/github/RokuCommunity/roku/dist
+        cp -R $projectPath /Users/phil/github/RokuCommunity/roku/dist
+
     elif [ "$script_code" == "vd07" ]; then
+
+
+        cp ../.launch/brighterscript.json ../.vscode/launch.json
+        projectFolder="video"
         project="video-07"
-        cp ../.launch/$project.json ../.vscode/launch.json
+        projectPath="/Users/phil/github/RokuCommunity/roku/projects/$projectFolder/$project"
         cp ../.bsconfig/$project.json ../bsconfig.json
-        cd ../projects/video/$project
-        echo "hit f5 to start project or command-shift-f5 to restart"
+        rm -rf /Users/phil/github/RokuCommunity/roku/dist
+        cp -R $projectPath /Users/phil/github/RokuCommunity/roku/dist
+
     elif [ "$script_code" == "vd08" ]; then
+
+
+        cp ../.launch/brighterscript.json ../.vscode/launch.json
+        projectFolder="video"
         project="video-08"
-        cp ../.launch/$project.json ../.vscode/launch.json
+        projectPath="/Users/phil/github/RokuCommunity/roku/projects/$projectFolder/$project"
         cp ../.bsconfig/$project.json ../bsconfig.json
-        cd ../projects/video/$project
-        echo "hit f5 to start project or command-shift-f5 to restart"
+        rm -rf /Users/phil/github/RokuCommunity/roku/dist
+        cp -R $projectPath /Users/phil/github/RokuCommunity/roku/dist
 
     else
         valid_code=false

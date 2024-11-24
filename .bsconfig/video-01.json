@@ -1,10 +1,10 @@
 {
-    "rootDir": "./projects/video/video-01",
-    "stagingDir": "./out",
-    "retainStagingLocation": true,
-    "retainStagingDir": true,
+    "rootDir": "${workspaceFolder}/projects/video/video-01",
     "scripts": {
         "build-tests": "npx bsc",
         "build-tdd": "npx bsc --project bsconfig-tdd.json"
-    }
+    },
+    "retainStagingDir": true,
+    "stagingDir": "/Users/phil/github/RokuCommunity/roku/dist",
+    "createPackage": false    
 }
