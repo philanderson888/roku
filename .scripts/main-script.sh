@@ -21,22 +21,11 @@ display_list_of_projects () {
     echo favourites
     echo "lg01 layout group 01"
     echo "ll01 label list 01 02 03 04"
+    echo "ml01 markup list 01 02 03"
     
     echo "bk01 background ... bg01/2 button group ... b01/2/3/4 brighterscript ... chk01/2 checklist ... cp01/2 component ... gd01 grid"
-    echo "gp01 grid panel ... hw 01 ... 04  hello world ... kp 01 2 3 key press "
-    echo "lg01    ... layout group 01"
-    echo "lg02    ... layout group 02"
-    echo "ml01    ... markup list 01"
-    echo "ml02    ... markup list 02"
-    echo "ml03    ... markup list 03-sample"
-    echo "over    ... overhang"
-    echo "pg01    ... poster grid 01"
-    echo "pg02    ... poster grid 02"
-    echo "pg03    ... poster grid 03"
-    echo "rb01    ... rooibos 01"
-    echo "rect01/2   ... rectangle 01 02"
-    echo "rd01       ... roku-deploy-01"
-    echo "rl01/2/3   ... row list 01 02 03 (row list 02 has 150 items)"
+    echo "gp01 grid panel ... hw 01 ... 04  hello world ... kp 01 2 3 key press  ml01 02 03 markup list 01 02 03 ... over overhang pg01 02 03 poster grid 01 02 03"
+    echo "rb01 rooibos ... rect01/2 rectangle ... rd01 roku deploy ... rl01/2/3 row list ... vd01 .. 08 video"
     echo "vd01 .. 08 ... video 01 .. 08 ... 05 is the only one which works, others the feed is outdated"
 
     echo fix
@@ -322,49 +311,21 @@ while :
         rm -rf /Users/phil/github/RokuCommunity/roku/dist
         cp -R $projectPath /Users/phil/github/RokuCommunity/roku/dist
 
-
-    elif [ "$script_code" == "lg01" ]; then
-
-        cp ../.launch/brighterscript.json ../.vscode/launch.json
-        projectFolder="layout-group"
-        project="layout-group-01"
-        cp ../.launch/$project.json ../.vscode/launch.json
-        cp ../.bsconfig/$project.json ../bsconfig.json
-        cd ../projects/layout-group/$project
-        echo "hit f5 to start project or command-shift-f5 to restart"
-
-
-
-    elif [ "$script_code" == "lg02" ]; then
-
-        cp ../.launch/brighterscript.json ../.vscode/launch.json
-        projectFolder="layout-group"
-        project="layout-group-02"
-        cp ../.launch/$project.json ../.vscode/launch.json
-        cp ../.bsconfig/$project.json ../bsconfig.json
-        cd ../projects/layout-group/$project
-        echo "hit f5 to start project or command-shift-f5 to restart"
-
     
 
     elif [ "$script_code" == "ml01" ]; then
+
+        cp ../.launch/brighterscript.json ../.vscode/launch.json
+        projectFolder="markup-list"
         project="markup-list-01"
-        cp ../.launch/$project.json ../.vscode/launch.json
+        projectPath="/Users/phil/github/RokuCommunity/roku/projects/$projectFolder/$project"
         cp ../.bsconfig/$project.json ../bsconfig.json
-        cd ../projects/markup-list/$project
-        echo "hit f5 to start project or command-shift-f5 to restart"
-    elif [ "$script_code" == "ml02" ]; then
-        project="markup-list-02"
-        cp ../.launch/$project.json ../.vscode/
-        cp ../.bsconfig/$project.json ../bsconfig.json
-        cd ../projects/markup-list/$project
-        echo "hit f5 to start project or command-shift-f5 to restart"
-    elif [ "$script_code" == "ml03" ]; then
-        project="markup-list-03"
-        cp ../.launch/$project.json ../.vscode/
-        cp ../.bsconfig/$project.json ../bsconfig.json
-        cd ../projects/markup-list/$project
-        echo "hit f5 to start project or command-shift-f5 to restart"
+        rm -rf /Users/phil/github/RokuCommunity/roku/dist
+        cp -R $projectPath /Users/phil/github/RokuCommunity/roku/dist
+
+
+
+
     elif [ "$script_code" == "over" ]; then
         project="overhang"
         cp ../.launch/$project.json ../.vscode/launch.json
