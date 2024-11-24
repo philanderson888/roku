@@ -1,0 +1,31 @@
+function init()
+    m.top.setFocus(true)
+    m.myLabel = m.top.findNode("myLabel")
+    m.myLabel.font.size=150
+    m.myLabel.color="0xCCCCCC"
+    m.myLabel2 = m.top.findNode("myLabel2")
+    m.myLabel2.font.size=50
+    m.myLabel2.color="0xdddddd"
+    m.myLabel3 = m.top.findNode("myLabel3")
+    m.myLabel3.font.size=50
+    m.myLabel3.color="0xff0000ff"
+    m.myLabel3 = m.top.findNode("myLabel4")
+    m.myLabel3.font.size=80
+    m.myLabel3.color="0x00ff00"
+	m.newItem = CreateObject("RoSGNode", "Label")
+	m.newItem.text="A label"
+	xVal = 720
+	yVal = 500
+	m.newItem.translation = [xVal,yVal]
+	m.newItem.visible=true
+    font = CreateObject("roSGNode","Font")
+    font.uri = "pkg:/fonts/BohemianTypewriter.ttf"
+    m.font= font
+	'customView = CreateObject("roSGNode","CustomView")
+    'm.top.appendChild(customView)
+    'customView.setFocus(true)
+end function
+
+sub doSomething()
+    print "doSomething"
+end sub
