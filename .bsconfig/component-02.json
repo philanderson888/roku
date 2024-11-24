@@ -1,9 +1,10 @@
 {
-    "rootDir": "./projects/component/component-02",
-    "retainStagingLocation": true,
-    "retainStagingDir": true,
+    "rootDir": "${workspaceFolder}/projects/comnponent/component-02",
     "scripts": {
         "build-tests": "npx bsc",
         "build-tdd": "npx bsc --project bsconfig-tdd.json"
-    }
+    },
+    "retainStagingDir": true,
+    "stagingDir": "/Users/phil/github/RokuCommunity/roku/dist",
+    "createPackage": false    
 }

@@ -1,5 +1,5 @@
 {
-    "rootDir": "${workspaceFolder}/projects/checklist/checklist-02",
+    "rootDir": "${workspaceFolder}/projects/comnponent/component-02",
     "scripts": {
         "build-tests": "npx bsc",
         "build-tdd": "npx bsc --project bsconfig-tdd.json"

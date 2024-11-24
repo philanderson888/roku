@@ -15,11 +15,7 @@ while :
     echo "lg01 layout group 01"
     echo "ll01 label list 01 02 03 04"
     
-    echo "bk01       ... background"
-    echo "bg01 02    ... button group 01 02"
-    echo "b01 02 03  ... brighterscript 01 02 03-classes 04-variables"
-    echo "chk01 02   ... checklist 01 02"
-    echo "cp01 02    ... component 01 02"
+    echo "bk01 background ... bg01/2 button group ... b01/2/3/4 brighterscript ... chk01/2 checklist ... cp01/2 component"
     echo "gp01       ... grid panel 01"
     echo "hw01 .. 08 ... hello world 01 02 03 04 05 06 07 08"
     echo "kp01 .. 03  ... key-press-01 02 03"
@@ -144,17 +140,27 @@ while :
 
 
     elif [ "$script_code" == "cp01" ]; then
+        cp ../.launch/brighterscript.json ../.vscode/launch.json
+        projectFolder="component"
         project="component-01"
-        cp ../.launch/$project.json ../.vscode/launch.json 
+        projectPath="/Users/phil/github/RokuCommunity/roku/projects/$projectFolder/$project"
         cp ../.bsconfig/$project.json ../bsconfig.json
-        cd ../projects/components/$project
-        echo "hit f5 to start project or command-shift-f5 to restart"
+        rm -rf /Users/phil/github/RokuCommunity/roku/dist
+        cp -R $projectPath /Users/phil/github/RokuCommunity/roku/dist
+
+
     elif [ "$script_code" == "cp02" ]; then
+        cp ../.launch/brighterscript.json ../.vscode/launch.json
+        projectFolder="component"
         project="component-02"
-        cp ../.launch/$project.json ../.vscode/launch.json 
+        projectPath="/Users/phil/github/RokuCommunity/roku/projects/$projectFolder/$project"
         cp ../.bsconfig/$project.json ../bsconfig.json
-        cd ../projects/components/$project
-        echo "hit f5 to start project or command-shift-f5 to restart"
+        rm -rf /Users/phil/github/RokuCommunity/roku/dist
+        cp -R $projectPath /Users/phil/github/RokuCommunity/roku/dist
+
+
+
+
     elif [ "$script_code" == "gd01" ]; then
         project="grid-01"
         cp ../.launch/$project.json ../.vscode/launch.json 

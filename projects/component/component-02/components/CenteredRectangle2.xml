@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="CenteredRectangle2" extends="CenteredRectangle" >
+ <script type="text/brightscript" uri="pkg:/components/CenteredRectangle2.brs" />
+ <children>
+    <Group>
+     <Rectangle
+       id="rect2"
+       width="200"
+       height="200"
+       translation="[200,200]"
+       color="0xc5c951FF"  
+     />
+   </Group>
+ </children>
+</component>
