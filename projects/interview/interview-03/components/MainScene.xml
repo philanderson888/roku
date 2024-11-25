@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="MainScene" extends="Scene">
+    <script type="text/brightscript" uri="MainScene.brs" />
+    <script type="text/brightscript" uri="mainSceneHelper.brs" />
+    <script type="text/brightscript" uri="rowListHelper.brs" />
+    <children>
+        <RowList 
+            id = "mainRowList" 
+            translation = "[ 90, 200 ]" 
+            itemComponentName = "RowListItem" 
+            numRows = "4" 
+            itemSize = "[ 4000, 180 ]" 
+            rowItemSize = "[ [200, 150], [150, 200], [200, 150], [150, 200] ]" 
+            itemSpacing = "[ 30, 30 ]" 
+            showRowLabel = "[ true, true, true, true ]" 
+            drawFocusFeedback = "false" 
+            vertFocusAnimationStyle = "fixedFocusWrap" 
+            rowFocusAnimationStyle = "fixedFocusWrap" 
+        />
+
+    </children>
+</component>
