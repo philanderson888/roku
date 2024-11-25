@@ -1,10 +1,10 @@
 {
-    "rootDir": "/Users/phil/github/RokuCommunity/roku/projects/brighterscript/brighterscript-03",
+    "rootDir": "${workspaceFolder}/projects/interview/interview-04",
     "scripts": {
         "build-tests": "npx bsc",
         "build-tdd": "npx bsc --project bsconfig-tdd.json"
     },
     "retainStagingDir": true,
     "stagingDir": "/Users/phil/github/RokuCommunity/roku/dist",
-    "createPackage": false
+    "createPackage": false    
 }

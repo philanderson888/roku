@@ -1,5 +1,5 @@
 {
-    "rootDir": "/Users/phil/github/RokuCommunity/roku/projects/brighterscript/brighterscript-03",
+    "rootDir": "/Users/phil/github/RokuCommunity/roku/projects/brighterscript/brighterscript-01",
     "scripts": {
         "build-tests": "npx bsc",
         "build-tdd": "npx bsc --project bsconfig-tdd.json"

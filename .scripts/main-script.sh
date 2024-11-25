@@ -8,7 +8,7 @@ deploy_code_to_roku_device () {
 }
 
 get_project_code_from_user () {
-    sleep 2
+    sleep 1
     cd /Users/phil/github/RokuCommunity/roku/.scripts
     read -p "enter the project code: (press ENTER to use last code used [$last_code_used]): " script_code
     script_code=${script_code:-$last_code_used}
@@ -20,11 +20,11 @@ display_list_of_projects () {
 
     echo favourites
     echo "ll01 label list 01 02 03 04"
-    echo "ml01 markup list 01 02 03"
+    echo "ml01 markup list 01 "
     
     echo "bk01 background ... bg01/2 button group ... b01/2/3/4 brighterscript ... chk01/2 checklist ... cp01/2 component ... gd01 grid"
-    echo "gp01 grid panel ... hw 01 ... 04  hello world ... kp 01 2 3 key press  ml01 02 03 markup list 01 02 03 ... oh01 overhang ... "
-    echo "pg01 02 03 poster grid 01 02 03   rb01 rooibos ... rect01/2 rectangle ... rd01 roku deploy ... rl01/2/3 row list ... vd01 .. 08 video"
+    echo "gp01 grid panel ... hw 01 ... 04  hello world ... kp 01 2 3 key press  ml01 markup list 01     ... oh01 overhang ... "
+    echo "pg01 02 03 poster grid 01 02 03   rb01 rooibos ... rl01/2 rectangle ... rd01 roku deploy ... rl01/2/3 row list ... vd01 .. 08 video"
     echo "vb01 variables ...  vd01 .. 08 ... video 01 .. 08 ... 05 is the only one which works, others the feed is outdated"
 
     echo fix
@@ -67,34 +67,52 @@ while :
         cp -R $projectPath /Users/phil/github/RokuCommunity/roku/dist
         echo "files moved to dist folder ready for deployment"
         echo "hit f5 to start project or command-shift-f5 to restart"
+
+
       elif [ "$script_code" == "b01" ]; then
+        projectFolder="brighterscript"
         project="brighterscript-01"
-        yes | cp ../.launch/$project.json ../.vscode/launch.json
-        yes | cp ../.bsconfig/$project.json ../bsconfig.json
+        cp /Users/phil/github/RokuCommunity/roku/.launch/brighterscript.json /Users/phil/github/RokuCommunity/roku/.vscode/launch.json
+        cp /Users/phil/github/RokuCommunity/roku/.bsconfig/$project.json /Users/phil/github/RokuCommunity/roku/bsconfig.json
+        projectPath="/Users/phil/github/RokuCommunity/roku/projects/$projectFolder/$project"
         cd ../projects/brighterscript/$project
         bsc
         echo "this is a brighterscrpt compiled project so ... to start the project"
+
+
     elif [ "$script_code" == "b02" ]; then
+        projectFolder="brighterscript"
         project="brighterscript-02"
-        yes | cp ../.launch/$project.json ../.vscode/launch.json
-        yes | cp ../.bsconfig/$project.json ../bsconfig.json
-        cd ../projects/brighterscript/$project
-        bsc
-        echo "this is a brighterscrpt compiled project so ... to start the project" 
-    elif [ "$script_code" == "b03" ]; then
-        project="brighterscript-03"
-        yes | cp ../.launch/brighterscript.json ../.vscode/launch.json
-        yes | cp ../.bsconfig/$project.json ../bsconfig.json
-        cd ../projects/brighterscript/$project-classes
-        bsc
-        echo "this is a brighterscrpt compiled project"
-    elif [ "$script_code" == "b04" ]; then
-        project="brighterscript-04"
-        yes | cp ../.launch/$project.json ../.vscode/launch.json
-        yes | cp ../.bsconfig/$project.json ../bsconfig.json
+        cp /Users/phil/github/RokuCommunity/roku/.launch/brighterscript.json /Users/phil/github/RokuCommunity/roku/.vscode/launch.json
+        cp /Users/phil/github/RokuCommunity/roku/.bsconfig/$project.json /Users/phil/github/RokuCommunity/roku/bsconfig.json
+        projectPath="/Users/phil/github/RokuCommunity/roku/projects/$projectFolder/$project"
         cd ../projects/brighterscript/$project
         bsc
         echo "this is a brighterscrpt compiled project so ... to start the project"
+
+
+    elif [ "$script_code" == "b03" ]; then
+        projectFolder="brighterscript"
+        project="brighterscript-03"
+        cp /Users/phil/github/RokuCommunity/roku/.launch/brighterscript.json /Users/phil/github/RokuCommunity/roku/.vscode/launch.json
+        cp /Users/phil/github/RokuCommunity/roku/.bsconfig/$project.json /Users/phil/github/RokuCommunity/roku/bsconfig.json
+        projectPath="/Users/phil/github/RokuCommunity/roku/projects/$projectFolder/$project"
+        cd ../projects/brighterscript/$project
+        bsc
+        echo "this is a brighterscrpt compiled project so ... to start the project"
+
+
+    elif [ "$script_code" == "b04" ]; then
+        projectFolder="brighterscript"
+        project="brighterscript-04"
+        cp /Users/phil/github/RokuCommunity/roku/.launch/brighterscript.json /Users/phil/github/RokuCommunity/roku/.vscode/launch.json
+        cp /Users/phil/github/RokuCommunity/roku/.bsconfig/$project.json /Users/phil/github/RokuCommunity/roku/bsconfig.json
+        projectPath="/Users/phil/github/RokuCommunity/roku/projects/$projectFolder/$project"
+        cd ../projects/brighterscript/$project
+        bsc
+        echo "this is a brighterscrpt compiled project so ... to start the project"
+
+
 
 
 
@@ -236,6 +254,53 @@ while :
         cp ../.bsconfig/$project.json ../bsconfig.json
         rm -rf /Users/phil/github/RokuCommunity/roku/dist
         cp -R $projectPath /Users/phil/github/RokuCommunity/roku/dist
+
+
+
+    elif [ "$script_code" == "iv01" ]; then
+
+        cp ../.launch/brighterscript.json ../.vscode/launch.json
+        projectFolder="interview"
+        project="interview-01"
+        projectPath="/Users/phil/github/RokuCommunity/roku/projects/$projectFolder/$project"
+        cp ../.bsconfig/$project.json ../bsconfig.json
+        rm -rf /Users/phil/github/RokuCommunity/roku/dist
+        cp -R $projectPath /Users/phil/github/RokuCommunity/roku/dist
+
+
+
+    elif [ "$script_code" == "iv02" ]; then
+
+        cp ../.launch/brighterscript.json ../.vscode/launch.json
+        projectFolder="interview"
+        project="interview-02"
+        projectPath="/Users/phil/github/RokuCommunity/roku/projects/$projectFolder/$project"
+        cp ../.bsconfig/$project.json ../bsconfig.json
+        rm -rf /Users/phil/github/RokuCommunity/roku/dist
+        cp -R $projectPath /Users/phil/github/RokuCommunity/roku/dist
+
+
+    elif [ "$script_code" == "iv03" ]; then
+
+        cp ../.launch/brighterscript.json ../.vscode/launch.json
+        projectFolder="interview"
+        project="interview-03"
+        projectPath="/Users/phil/github/RokuCommunity/roku/projects/$projectFolder/$project"
+        cp ../.bsconfig/$project.json ../bsconfig.json
+        rm -rf /Users/phil/github/RokuCommunity/roku/dist
+        cp -R $projectPath /Users/phil/github/RokuCommunity/roku/dist
+
+
+    elif [ "$script_code" == "iv04" ]; then
+
+        cp ../.launch/brighterscript.json ../.vscode/launch.json
+        projectFolder="interview"
+        project="interview-04"
+        projectPath="/Users/phil/github/RokuCommunity/roku/projects/$projectFolder/$project"
+        cp ../.bsconfig/$project.json ../bsconfig.json
+        rm -rf /Users/phil/github/RokuCommunity/roku/dist
+        cp -R $projectPath /Users/phil/github/RokuCommunity/roku/dist
+
 
 
 
@@ -408,6 +473,18 @@ while :
         cp ../.bsconfig/$project.json ../bsconfig.json
         rm -rf /Users/phil/github/RokuCommunity/roku/dist
         cp -R $projectPath /Users/phil/github/RokuCommunity/roku/dist
+
+
+    elif [ "$script_code" == "rl04" ]; then
+        
+        cp ../.launch/brighterscript.json ../.vscode/launch.json
+        projectFolder="row-list"
+        project="row-list-04"
+        projectPath="/Users/phil/github/RokuCommunity/roku/projects/$projectFolder/$project"
+        cp ../.bsconfig/$project.json ../bsconfig.json
+        rm -rf /Users/phil/github/RokuCommunity/roku/dist
+        cp -R $projectPath /Users/phil/github/RokuCommunity/roku/dist
+
 
 
     elif [ "$script_code" == "vb01" ]; then
