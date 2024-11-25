@@ -11,7 +11,8 @@
         "stagingDir": "/Users/phil/github/RokuCommunity/roku/dist",
         "retainStagingFolder": true,
         "outDir": "/Users/phil/github/RokuCommunity/roku/out",
-        "stopOnEntry": false
+        "stopOnEntry": false,
+        "injectRdbOnDeviceComponent": true
       }
    ]
 }
