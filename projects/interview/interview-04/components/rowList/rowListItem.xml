@@ -1,0 +1,23 @@
+<?xml version = "1.0" encoding = "utf-8" ?>
+<component name = "RowListItem" extends = "Group" >
+  <script type = "text/brightscript" uri="pkg:/components/rowList/rowListItem.brs" />
+  <interface > 
+    <field id = "itemContent" type = "node" onChange = "showcontent"/>
+    <field id = "focusPercent" type = "float" onChange = "showfocus"/> 
+    <field id = "rowFocusPercent" type = "float" onChange = "showrowfocus"/>
+    <field id = "itemUnfocused" type = "boolean" onChange = "showunfocused" alwaysNotify="true" />
+  </interface>
+  <children >
+
+    <Rectangle 
+      id = "itemRectangle" 
+      color = "0xaaaaaaFF" 
+      opacity = "0.75" 
+      width = "180" 
+      height = "135" 
+      scaleRotateCenter = "[ 256.0, 144.0 ]"
+    />
+    
+  </children>
+
+</component>
