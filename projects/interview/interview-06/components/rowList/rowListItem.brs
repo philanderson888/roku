@@ -19,7 +19,7 @@ sub showcontent()
 
     if itemcontent.shortDescriptionLine2 = "Portrait" then 
         m.itemRectangle.width = 158
-        m.itemRectangle.height = 233
+        m.itemRectangle.height = 223
     else if itemcontent.shortDescriptionLine2 = "Landscape" then 
         m.itemRectangle.width = 263
         m.itemRectangle.height = 148
