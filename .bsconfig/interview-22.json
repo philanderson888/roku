@@ -1,5 +1,5 @@
 {
-    "rootDir": "${workspaceFolder}/projects/interview/interview-09",
+    "rootDir": "${workspaceFolder}/projects/interview/interview-22",
     "scripts": {
         "build-tests": "npx bsc",
         "build-tdd": "npx bsc --project bsconfig-tdd.json"
