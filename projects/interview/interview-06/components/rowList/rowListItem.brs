@@ -6,17 +6,11 @@ sub init()
     m.itemRectangle.scale = [ 1, 1 ]
     m.itemRectangle.rotation = 0
     m.itemRectangle.scaleRotateCenter = [ 0, 0 ]
-    'm.itemposter = m.top.findNode("itemPoster") 
-    'm.itemlabel = m.top.findNode("itemLabel")
 end sub
 
 sub showcontent()
     itemcontent = m.top.itemContent
     print "item rectangle has parent and m.top as row list item"
-
-    'm.itemposter.uri = itemcontent.HDPosterUrl
-    'm.itemlabel.text = itemcontent.title
-
     if itemcontent.shortDescriptionLine2 = "Portrait" then 
         m.itemRectangle.width = 158
         m.itemRectangle.height = 223
@@ -27,7 +21,6 @@ sub showcontent()
         m.itemRectangle.width = 180
         m.itemRectangle.height = 148
     end if
-
     if itemcontent.color <> invalid then
         m.itemRectangle.color = itemcontent.color
     end if
@@ -54,12 +47,6 @@ sub showunfocus()
     m.itemRectangle.scale = [1, 1]
     m.itemRectangle.color = "#659286"
 end sub 
-
-sub showrowfocus()
-    'm.itemRectangle.opacity = 0.75 - (m.top.rowFocusPercent * 0.75)
-    'm.itemRectangle.opacity = 1.0
-    'm.itemlabel.opacity = m.top.rowFocusPercent
-end sub
 
 function onKeyEvent(key as String, press as Boolean) as Boolean  
 

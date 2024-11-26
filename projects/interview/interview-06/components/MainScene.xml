@@ -4,9 +4,6 @@
     <script type="text/brightscript" uri="pkg:/components/mainScene/mainSceneSplash.brs" />
     <script type="text/brightscript" uri="pkg:/components/mainScene/mainSceneRowList.brs" />
     <children>
-        <RowList 
-            id = "mainRowList" 
-        />
-
+        <RowList id = "mainRowList" />
     </children>
 </component>
