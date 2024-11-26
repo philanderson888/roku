@@ -10,8 +10,8 @@ sub addRowList()
     m.mainRowlist.rowFocusAnimationStyle = "fixedFocusWrap"
     m.mainRowlist.rowFocusAnimationStyle = "fixedFocusWrap"
     m.mainRowList.itemSize = [ 3000, 180 ]
-    m.mainRowList.rowHeights =  [       160,        160,        160,        160,        370 ]
-    m.mainRowList.rowItemSize = [ [180, 148], [180, 148], [180, 148], [360, 148], [180, 360] ]
+    m.mainRowList.rowHeights =  [       160,        160,        160,        160,        273 ]
+    m.mainRowList.rowItemSize = [ [180, 148], [180, 148], [180, 148], [263, 148], [148, 263] ]
 
     m.mainRowList.rowSpacing = 20
     m.mainRowList.rowItemspacing = [ [20, 20] ]
