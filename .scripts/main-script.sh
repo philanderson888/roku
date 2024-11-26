@@ -339,6 +339,18 @@ while :
 
 
 
+    elif [ "$script_code" == "iv08" ]; then
+
+        cp ../.launch/brighterscript.json ../.vscode/launch.json
+        projectFolder="interview"
+        project="interview-08"
+        projectPath="/Users/phil/github/RokuCommunity/roku/projects/$projectFolder/$project"
+        cp ../.bsconfig/$project.json ../bsconfig.json
+        rm -rf /Users/phil/github/RokuCommunity/roku/dist
+        cp -R $projectPath /Users/phil/github/RokuCommunity/roku/dist
+
+
+
 
 
 
