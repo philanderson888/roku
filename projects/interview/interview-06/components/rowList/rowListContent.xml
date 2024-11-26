@@ -33,6 +33,12 @@
         color = "#659286"
         shortDescriptionLine2 = "Regular"
         />
+      <ContentNode 
+        HDPosterUrl = "http://www.sdktestinglab.com/Tutorial/images/rectanglepg.jpg" 
+        title = "Rectangle Node" 
+        color = "#659286"
+        shortDescriptionLine2 = "Regular"
+        />
     </ContentNode>
 
     <ContentNode title = "Z-Order/Parent-Child" >
@@ -52,6 +58,12 @@
       <ContentNode 
         HDPosterUrl = "http://www.sdktestinglab.com/Tutorial/images/pcrenderablespg.jpg" 
         title = "Parent-Child Grouping"
+        color = "#659286"
+        shortDescriptionLine2 = "Regular"
+        />
+      <ContentNode 
+        HDPosterUrl = "http://www.sdktestinglab.com/Tutorial/images/pcrectanglespg.jpg" 
+        title = "Parent-Child Inheritance" 
         color = "#659286"
         shortDescriptionLine2 = "Regular"
         />
@@ -91,6 +103,12 @@
       <ContentNode 
         HDPosterUrl = "http://www.sdktestinglab.com/Tutorial/images/animsequencepg.jpg" 
         title = "Sequential Animation" 
+        color = "#659286" 
+        shortDescriptionLine2 = "Regular"
+        />
+      <ContentNode 
+        HDPosterUrl = "http://www.sdktestinglab.com/Tutorial/images/animparallelpg.jpg" 
+        title = "Parallel Animation" 
         color = "#659286" 
         shortDescriptionLine2 = "Regular"
         />
