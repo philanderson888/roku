@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="MainScene" extends="Scene">
+    <script type="text/brightscript" uri="MainScene.brs" />
+    <script type="text/brightscript" uri="pkg:/components/mainScene/mainSceneSplash.brs" />
+    <script type="text/brightscript" uri="pkg:/components/mainScene/mainSceneRowList.brs" />
+    <children>
+        <RowList 
+            id = "mainRowList" 
+        />
+
+    </children>
+</component>
